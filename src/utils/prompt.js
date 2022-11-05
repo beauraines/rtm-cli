@@ -2,12 +2,14 @@
 
 const finish = require('./finish.js');
 const log = require('./log.js');
-
+const promptSync = require('prompt-sync')();
 
 /**
  * Prompt the User for a set of answers
  * @param {string} prompt One or more prompts to question the User
  * @param {function} callback Callback function(answers)
+ * @deprecated Use indexPrompt
+ instead
  */
 function prompt(prompt, callback) {
 
@@ -96,5 +98,29 @@ function _finish(answers, promptcount, callback) {
 }
 
 
+/**
+ * Prompts user for integer input until they enter a blank line
+ * @param {string} Prompt text to display
+ * @returns {number[]} array of user input integers
+ */
+ function indexPrompt(text) {
+  let tasks = []
+  let n
+  log.style('[Enter a blank line when finished]', 'dim', true);
+  while ( n != '' ) {
+      n = promptSync(text)
+      if (parseInt(n) ) {
+          tasks.push(n)
+       } else if (n == '') {
+          break
+       } else {
+          log.style('Enter a task index number, please.','red',true)
+       } 
+  }
 
-module.exports = prompt;
+  return tasks
+
+}
+
+
+module.exports = {prompt,indexPrompt};

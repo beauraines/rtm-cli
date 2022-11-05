@@ -2,8 +2,10 @@
 
 const log = require('../utils/log.js');
 const config = require('../utils/config.js');
-const prompt = require('../utils/prompt.js');
+const { prompt } = require('../utils/prompt.js');
 const finish = require('../utils/finish.js');
+const filter = require('../utils/filter')
+const { USER_CONFIG } = require('../utils/config.js');
 
 
 let NOTES = [];
@@ -61,10 +63,11 @@ function _process(index, count=1, max=1) {
     index = parseInt(index.trim());
 
     // Get Task
-    user.tasks.getTask(index, "hasNotes:true", function(err, task) {
+    let filterString = filter("hasNotes:true")
+    user.tasks.getTask(index, filterString, function(err, task) {
       if ( err ) {
         if ( err.code === -3 ) {
-          log.spinner.warn("Task #" + index + " does not have any notes");
+          log.spinner.warn("Task #" + index + " does not have any notes or is not found.");
         }
         else {
           log.spinner.error("Could not get Task #" + index + " (" + err.msg + ")");
@@ -77,6 +80,7 @@ function _process(index, count=1, max=1) {
           name: task.name,
           notes: task.notes
         });
+        // console.log(task)
       }
 
       // Finish
