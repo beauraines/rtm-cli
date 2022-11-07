@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "archiver": "^2.1.0",
+    "jest": "^29.2.2",
     "pkg": "^4.3.3"
   },
   "pkg": {
