@@ -92,6 +92,11 @@ function action(args, env) {
           log.style('  ');
         }
 
+        // Display subtask indicator
+        if (task.isSubtask) {
+          printIndicator('subtask',task);
+        }
+
         // Add the Task Name
         log.style(task.name+' ', namestyle);
 
@@ -103,6 +108,11 @@ function action(args, env) {
         // Print Note Indicators
         for ( let i = 0; i < task.notes.length; i++ ) {
           printIndicator('notes',task);
+        }
+
+        // Print recurring indicator
+        if (task.isRecurring) {
+          printIndicator('recurring',task);
         }
 
         // Print Tags

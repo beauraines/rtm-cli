@@ -80,6 +80,12 @@ function action(args, env) {
         let listStyle = task.isCompleted ? styles.completed : styles.list;
         log.style(task.list.name + ':', listStyle);
 
+          // Display subtask indicator
+          if (task.isSubtask) {
+            log.style(' ');
+            printIndicator('subtask',task);
+          }
+
         // Print the Task Name
         log.style(' ');
         log.style(task.name + ' ', priStyle);
@@ -94,6 +100,11 @@ function action(args, env) {
           printIndicator('notes',task);
         }
 
+        // Print recurring indicator
+        if (task.isRecurring) {
+          printIndicator('recurring',task);
+        }
+        
         // Print Tags
         let tagstyle = task.isCompleted ? styles.completed : styles.tags;
         for ( let i = 0; i < task.tags.length; i++ ) {
