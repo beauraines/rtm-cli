@@ -5,7 +5,7 @@ const config = require('../utils/config.js');
 const finish = require('../utils/finish.js');
 const filter = require('../utils/filter');
 const { indexPrompt } = require('../utils/prompt')
-const opn = require('opn');
+const open = require('open');
 
 
 let URLS = [];
@@ -68,7 +68,7 @@ async function action(args, env) {
   // Open URL
   if ( OPEN ) {
     for ( let i = 0; i < URLS.length; i++ ) {
-      opn(URLS[i].url, {wait: false})//.then(function() {});
+      open(URLS[i].url, {wait: false})//.then(function() {});
     }
   }
   

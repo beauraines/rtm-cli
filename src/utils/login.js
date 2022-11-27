@@ -1,6 +1,7 @@
 'use strict';
 
-const cp = require('copy-paste');
+const cp = require('clipboardy');
+const promptSync = require('prompt-sync')();
 const log = require('./log.js');
 const finish = require('../utils/finish.js');
 
@@ -27,7 +28,7 @@ function login(callback) {
     log.spinner.stop();
 
     // Copy URL to clipboard
-    cp.copy(url);
+    cp.writeSync(url);
 
     // Display the URL
     log.style('Please open the following URL (');
@@ -36,31 +37,30 @@ function login(callback) {
     log.style(url, 'blue.underline', true);
 
     // Wait for User Input
-    global._rl.question('Press [enter] when done: ', function() {
-      log.spinner.start('Logging In...');
+    promptSync('Press [enter] when done: ');
+    log.spinner.start('Logging In...');
 
-      // Get the Authorized User
-      client.auth.getAuthToken(frob, function(err, user) {
-        if ( err ) {
-          log.spinner.error('Could not Log In (' + err.msg + ')');
-          return finish();
-        }
+    // Get the Authorized User
+    client.auth.getAuthToken(frob, function(err, user) {
+      if ( err ) {
+        log.spinner.error('Could not Log In (' + err.msg + ')');
+        return finish();
+      }
 
-        // Display success
-        log.spinner.success('Logged in As: ' + user.username);
+      // Display success
+      log.spinner.success('Logged in As: ' + user.username);
 
-        // Save the User to the config
-        config.saveUser(user);
+      // Save the User to the config
+      config.saveUser(user);
 
-        // Return the User
-        if ( callback ) {
-          return callback(user);
-        }
-        else {
-          return finish();
-        }
+      // Return the User
+      if ( callback ) {
+        return callback(user);
+      }
+      else {
+        return finish();
+      }
 
-      });
     });
   });
 }
