@@ -2,7 +2,7 @@ Remember The Milk Command Line Interface
 ========================================
 
 **node module:** [rtm-cli](https://www.npmjs.com/package/rtm-cli)<br />
-**GitHub repo:** [dwaring87/rtm-cli](https://github.com/beauraines/rtm-cli)
+**GitHub repo:** [beauraines/rtm-cli](https://github.com/beauraines/rtm-cli)
 
 ---
 
