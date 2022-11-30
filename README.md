@@ -2,16 +2,23 @@ Remember The Milk Command Line Interface
 ========================================
 
 **node module:** [rtm-cli](https://www.npmjs.com/package/rtm-cli)<br />
-**GitHub repo:** [dwaring87/rtm-cli](https://github.com/dwaring87/rtm-cli)
+**GitHub repo:** [dwaring87/rtm-cli](https://github.com/beauraines/rtm-cli)
 
 ---
 
 This Node module provides a command line interface, written in JavaScript,
 for the popular [Remember the Milk](https://www.rememberthemilk.com/) task list
-manager.
+manager. 
 
-![](https://raw.githubusercontent.com/dwaring87/rtm-cli/master/screens/ls.png)
+![](https://raw.githubusercontent.com/beauraines/rtm-cli/master/screens/ls.png)
 
+This is a fork of [dwaring87/rtm-cli](https://github.com/dwaring87/rtm-cli) so that I can maintain, modernize and add features. Your contributions are welcome!
+
+This fork and [beauraines/rtm-api](https://github.com/beauraines/rtm-api) include
+
+1. performance improvements
+2. rewriting to use Promises
+3. additional task attributes like subtasks and recurrence
 
 ## Installation
 
@@ -21,7 +28,7 @@ If you already have [Node](https://nodejs.org) installed, this program can be
 installed via `npm`:
 
 ```shell
-npm install -g rtm-cli
+npm install -g @beauraines/rtm-cli
 ```
 
 which will install the executable `rtm` into your `$PATH`.
@@ -32,7 +39,7 @@ which will install the executable `rtm` into your `$PATH`.
 
 Standalone executables, that do not require a pre-existing installation of Node,
 are available in the [Releases](https://github.com/dwaring87/rtm-cli/releases)
-page.
+page. **I do not intend to continue this in my fork.**
 
 
 ## Usage
