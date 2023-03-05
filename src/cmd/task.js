@@ -5,7 +5,6 @@ const config = require('../utils/config.js');
 const finish = require('../utils/finish.js');
 const filter = require('../utils/filter');
 const { indexPrompt } = require('../utils/prompt')
-const opn = require('opn');
 
 
 let TASKS = [];
