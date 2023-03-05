@@ -11,6 +11,8 @@ const opn = require('opn');
 let URLS = [];
 let OPEN = false;
 
+// Get Display Styles
+let styles = config.get().styles;
 
 /**
  * This command displays all task details
@@ -65,7 +67,13 @@ async function action(args, env) {
   log.spinner.stop();
   for ( let i = 0; i < URLS.length; i++ ) {
     // TODO clean up the output
-    log(URLS[i].index + " " + JSON.stringify(URLS[i].task));
+    log(URLS[i].index + " " + URLS[i].task.name);
+    // eslint-disable-next-line no-unused-vars
+    const { _list, list_id, taskseries_id, task_id, _index, ...task} = URLS[i].task
+    for (const [key, value] of Object.entries(task)) {
+      log.style(`${key}:`,styles.index,false)
+      log(`${value}`);
+    }
   }
 
   // Open URL // TODO clean up URLS
