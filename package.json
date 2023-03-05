@@ -62,7 +62,7 @@
       "config.json",
       "src/cmd/*.js"
     ],
-    "targets": "node8-linux-x86,node8-linux-x64,node8-macos-x86,node8-macos-x64,node8-win-x86,node8-win-x64",
+    "targets": "latest-linux-x64,latest-macos-x64,latest-win-x64",
     "out": "./bin"
   }
 }
