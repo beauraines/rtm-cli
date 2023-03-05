@@ -58,14 +58,16 @@ async function action(args, env) {
   // Print TASKS
   log.spinner.stop();
   for ( let i = 0; i < TASKS.length; i++ ) {
-    // TODO clean up the output
-    log(TASKS[i].index + " " + TASKS[i].task.name);
+    // TODO clean up the output - move this to function
+    let index = TASKS[i].index
     // eslint-disable-next-line no-unused-vars
-    const { _list, list_id, taskseries_id, task_id, _index, ...task} = TASKS[i].task
+    const { _list, list_id, taskseries_id, task_id, _index, name, ...task} = TASKS[i].task
+    log(index + " " + name);
     for (const [key, value] of Object.entries(task)) {
       log.style(`${key}:`,styles.index,false)
       log(`${value}`);
     }
+    //! end of function
   }
 
 
