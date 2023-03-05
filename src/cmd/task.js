@@ -79,11 +79,34 @@ module.exports = {
 function displayTask(taskDetails) {
   let index = taskDetails.index;
   // eslint-disable-next-line no-unused-vars
-  const { _list, list_id, taskseries_id, task_id, _index, name, ...task } = taskDetails.task;
+  const { _list, list_id, taskseries_id, task_id, _index, name, priority, start, due, completed, isRecurring, isSubtask, estimate, url, tags, notes ,...otherAttributes } = taskDetails.task;
   log(index + " " + name);
-  log(`List: ${list_id}`) // TODO lookup the list name
-  for (const [key, value] of Object.entries(task)) {
-    log.style(`${key}:`, styles.index, false);
+  log.style(`List: `,styles.index)
+  log(`${list_id}`) // TODO lookup the list name
+  log.style(`Priority: `,styles.index)
+  log(`${priority}`)
+  log.style(`Start: `,styles.index)
+  log(`${start}`)
+  log.style(`Due: `,styles.index)
+  log(`${due}`)
+  log.style(`Completed: `,styles.index)
+  log(`${completed}`)
+  log.style(`Is Recurring: `,styles.index)
+  log(`${isRecurring}`)
+  log.style(`Is Subtask: `,styles.index)
+  log(`${isSubtask}`)
+  log.style(`Estimate: `,styles.index)
+  log(`${estimate}`)
+  log.style(`Url: `,styles.index)
+  log(`${url}`)
+  log.style(`Tags: `,styles.index)
+  log(`${tags}`)
+  log.style(`Notes: `,styles.index)
+  log(`${notes}`)
+
+  for (const [key, value] of Object.entries(otherAttributes)) {
+    log.style(`${key}: `, styles.index, false);
     log(`${value}`);
   }
+  log()
 }
