@@ -47,12 +47,11 @@ async function action(args, env) {
           }
 
           // Push to TASKS
-          if ( task && task.url !== undefined ) {
-            TASKS.push({
+          TASKS.push({
             index: index,
             task
-            });
-          }         
+          });
+
       }
   }
   // Print TASKS
@@ -75,16 +74,15 @@ module.exports = {
   action: action
 };
 
-// TODO clean up the output 
 function displayTask(taskDetails) {
   let index = taskDetails.index;
   // eslint-disable-next-line no-unused-vars
   const { _list, list_id, taskseries_id, task_id, _index, name, priority, start, due, completed, isRecurring, isSubtask, estimate, url, tags, notes ,...otherAttributes } = taskDetails.task;
-  log(index + " " + name);
+  log.style(index + " " + name,styles.list,true);
   log.style(`List: `,styles.index)
   log(`${list_id}`) // TODO lookup the list name
   log.style(`Priority: `,styles.index)
-  log(`${priority}`)
+  log.style(`${priority}`,styles.priority[priority],true)
   log.style(`Start: `,styles.index)
   log(`${start}`)
   log.style(`Due: `,styles.index)
@@ -100,10 +98,16 @@ function displayTask(taskDetails) {
   log.style(`Url: `,styles.index)
   log(`${url}`)
   log.style(`Tags: `,styles.index)
-  log(`${tags}`)
+  log.style(`${tags}`,styles.tags, true)
   log.style(`Notes: `,styles.index)
-  log(`${notes}`)
+  for (const note of notes) {
+    log.style(note.title ? note.title : '',true);
+    log('========');
+    log(note.body);
+    log();
+  }
 
+  // Displays all the other attributes. This will allow more attributes to be added to a RTMTask and they'll still be displayed.
   for (const [key, value] of Object.entries(otherAttributes)) {
     log.style(`${key}: `, styles.index, false);
     log(`${value}`);
