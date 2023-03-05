@@ -58,28 +58,32 @@ async function action(args, env) {
   // Print TASKS
   log.spinner.stop();
   for ( let i = 0; i < TASKS.length; i++ ) {
-    // TODO clean up the output - move this to function
-    let index = TASKS[i].index
-    // eslint-disable-next-line no-unused-vars
-    const { _list, list_id, taskseries_id, task_id, _index, name, ...task} = TASKS[i].task
-    log(index + " " + name);
-    for (const [key, value] of Object.entries(task)) {
-      log.style(`${key}:`,styles.index,false)
-      log(`${value}`);
-    }
-    //! end of function
+    displayTask(TASKS[i]);
   }
-
-
+  
+  
   finish()
   
-
+  
 }
 
 
 module.exports = {
-    command: 'task [indices...]',
-    options: [],
-    description: 'Display the Task details',
-    action: action
-  };
+  command: 'task [indices...]',
+  options: [],
+  description: 'Display the Task details',
+  action: action
+};
+
+// TODO clean up the output 
+function displayTask(taskDetails) {
+  let index = taskDetails.index;
+  // eslint-disable-next-line no-unused-vars
+  const { _list, list_id, taskseries_id, task_id, _index, name, ...task } = taskDetails.task;
+  log(index + " " + name);
+  log(`List: ${list_id}`) // TODO lookup the list name
+  for (const [key, value] of Object.entries(task)) {
+    log.style(`${key}:`, styles.index, false);
+    log(`${value}`);
+  }
+}
