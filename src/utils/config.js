@@ -3,7 +3,7 @@
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
-const api = require('rtm-api');
+const api = require('@beauraines/rtm-api');
 const merge = require('deepmerge');
 const login = require('./login.js');
 

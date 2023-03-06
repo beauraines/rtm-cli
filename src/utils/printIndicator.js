@@ -5,7 +5,7 @@ const log = require('./log.js');
 
 /**
  * 
- * @param {string} type note|url
+ * @param {string} type note|url|recurring
  * @param {object} task the task to print the indicator
  * @param {string} style emoji|text
  */
@@ -14,22 +14,28 @@ function printIndicator(type,task) {
     let iconType = config.get().iconType;
 
     let indicatorStyle = task.isCompleted ? styles.completed : styles[type];
-    let notesIndicator,urlIndicator;
+    let notesIndicator,urlIndicator,recurringIndicator,subTaskIndicator;
     iconType = iconType || 'text'; // defaults to text if nothing included
     switch (iconType) {
         case 'emoji':
             notesIndicator = '📓';
-            urlIndicator = '🔗'
+            urlIndicator = '🔗';
+            recurringIndicator = '🔁';
+            subTaskIndicator = '⤴️ '
         break;
         case 'text':  
         default:
             notesIndicator = '*';
-            urlIndicator = '+'
+            urlIndicator = '+';
+            recurringIndicator = 'r';
+            subTaskIndicator = '(s) '
         break;
     }
     let indicators = {
         notes: notesIndicator,
-        url: urlIndicator
+        url: urlIndicator,
+        recurring: recurringIndicator,
+        subtask: subTaskIndicator
     }
     log.style(indicators[type], indicatorStyle);
 }

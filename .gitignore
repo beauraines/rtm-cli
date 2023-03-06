@@ -3,3 +3,5 @@
 /node_modules
 /src/test.js
 /bin
+thunder-collection*.json
+coverage
