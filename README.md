@@ -64,37 +64,39 @@ The main usage of the program:
 
 
     Commands:
-
-      add|a [task...]                     Add a new Task
-      addList|al [name] [filter...]       Add a new List or Smart List
-      addTags|at [index] [tags...]        Add one or more tags to a Task
-      archiveList|arl [name...]           Archive a List
-      comp|x [indices...]                 Complete one or more Tasks
-      decPri|- [indices...]               Decrease the Priority of one or more Tasks
-      due [index] [due...]                Set the Due Date of a Task
-      edit [index] [name...]              Change the name of a Task
-      incPri|+ [indices...]               Increase the Priority of one or more Tasks
-      lists|l                             Display all lists
-      login                               Add RTM User information
-      logout                              Remove RTM User information
-      ls [filter...]                      List all tasks sorted first by list then by priority
-      lsd [filter...]                     List all tasks sorted first by due date then by priority
-      lsp [filter...]                     List all tasks sorted first by priority then due date
-      move|mv [index] [list...]           Move Task to a different List
-      planner [options] [filter...]       Display tasks in a weekly planner (--start: sun, mon, today)
-      postpone|pp [indices...]            Postpone one or more Tasks
-      pri|p [index] [priority]            Change Task Priority
-      remove|rm [indices...]              Remove one or more Tasks
-      removeList|rml [name...]            Remove a List
-      removeTags|rmt [index] [tags...]    Remove one or more tags from a Task
-      renameList|mvl [oldName] [newName]  Rename a List
-      reset                               Reset cached task indices
-      setUrl|su [index] [url]             Set the URL of a Task
-      tags|t                              Display all tags
-      uncomp|unc [indices...]             Mark one or more Tasks as not complete
-      url [options] [index...]            Display the associated URL of a Task
-      whoami                              Display RTM user information
-      overdue                             Display incomplete tasks that are overdue
+  add|a [task...]                          Add a new Task
+  addList|al [name] [filter...]            Add a new List or Smart List
+  addNote|addNotes [index] [title] [body]  Add note or prompt for the title and body of the note. If only an index and text are included the text will be the body of the note without a title
+  addTags|at [index] [tags...]             Add one or more tags to a Task
+  archiveList|arl [name...]                Archive a List
+  comp|x [indices...]                      Complete one or more Tasks
+  decPri|- [indices...]                    Decrease the Priority of one or more Tasks
+  due [index] [due...]                     Set the Due Date of a Task
+  edit [index] [name...]                   Change the name of a Task
+  incPri|+ [indices...]                    Increase the Priority of one or more Tasks
+  lists|l                                  Display all lists
+  login                                    Add RTM User information
+  logout                                   Remove RTM User information
+  ls [filter...]                           List all tasks sorted first by list then by priority
+  lsd [filter...]                          List all tasks sorted first by due date then by priority
+  lsp [filter...]                          List all tasks sorted first by priority then due date
+  move|mv [index] [list...]                Move Task to a different List
+  notes [indices...]                       Display the associated Notes of a Task
+  planner [options] [filter...]            Display tasks in a weekly planner (--start: sun, mon, today)
+  postpone|pp [indices...]                 Postpone one or more Tasks
+  pri|p [index] [priority]                 Change Task Priority
+  remove|rm [indices...]                   Remove one or more Tasks
+  removeList|rml [name...]                 Remove a List
+  removeTags|rmt [index] [tags...]         Remove one or more tags from a Task
+  renameList|mvl [oldName] [newName]       Rename a List
+  reset                                    Reset cached task indices
+  setUrl|su [index] [url]                  Set the URL of a Task
+  tags|t                                   Display all tags
+  task [indices...]                        Display the Task details
+  uncomp|unc [indices...]                  Mark one or more Tasks as not complete
+  url [options] [indices...]               Display the associated URL of a Task
+  whoami                                   Display RTM user information
+  overdue                                  Display incomplete tasks that are overdue
 ```
 
 
