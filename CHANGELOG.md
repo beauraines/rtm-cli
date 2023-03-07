@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/beauraines/rtm-cli/compare/v1.6.1...v1.7.0) (2023-03-07)
+
+
+### Features
+
+* adds ability to add notes to tasks ([#31](https://github.com/beauraines/rtm-cli/issues/31)) ([f262ec6](https://github.com/beauraines/rtm-cli/commit/f262ec6f02d024a5f3c49e10f79db2c6fabcf0fa)), closes [#23](https://github.com/beauraines/rtm-cli/issues/23)
+
 ### [1.6.1](https://github.com/beauraines/rtm-cli/compare/v1.6.0...v1.6.1) (2023-03-06)
 
 
