@@ -26,7 +26,7 @@ function clean() {
   console.log();
   console.log("CLEANING...");
   let files = fs.readdirSync(binPath);
-  for ( let file of files ) {
+  for ( let file of files.filter(x=>x!= '.gitkeep') ) {
     fs.unlinkSync(path.normalize(binPath + '/' + file));
   }
 }
