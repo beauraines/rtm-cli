@@ -6,6 +6,7 @@ const { prompt } = require('../utils/prompt.js');
 const finish = require('../utils/finish.js');
 const filter = require('../utils/filter')
 const { USER_CONFIG } = require('../utils/config.js');
+const debug = require('debug')('rtm-cli-notes');
 
 
 let NOTES = [];
@@ -64,6 +65,7 @@ function _process(index, count=1, max=1) {
 
     // Get Task
     let filterString = filter("hasNotes:true")
+    // TODO this should be switched to rtmIndexFetchTask(index,filterString) like in url.js
     user.tasks.getTask(index, filterString, function(err, task) {
       if ( err ) {
         if ( err.code === -3 ) {
@@ -75,6 +77,7 @@ function _process(index, count=1, max=1) {
       }
 
       if ( task ) {
+        debug(task)
         NOTES.push({
           index: index,
           name: task.name,
@@ -106,6 +109,7 @@ function _processFinished(count, max) {
     let styles = config.get().styles;
 
     // Print NOTES
+    debug(JSON.stringify(NOTES))
     for ( let i = 0; i < NOTES.length; i++ ) {
       log.style(_pad(NOTES[i].index , NOTES.length), styles.index);
       log.style(' ');

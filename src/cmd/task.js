@@ -5,6 +5,7 @@ const config = require('../utils/config.js');
 const finish = require('../utils/finish.js');
 const filter = require('../utils/filter');
 const { indexPrompt } = require('../utils/prompt')
+const debug = require('debug')('rtm-cli-task');
 
 
 let TASKS = [];
@@ -75,6 +76,7 @@ module.exports = {
 };
 
 function displayTask(taskDetails) {
+  debug(taskDetails)
   let index = taskDetails.index;
   // eslint-disable-next-line no-unused-vars
   const { _list, list_id, taskseries_id, task_id, _index, name, priority, start, due, completed, isRecurring, isSubtask, estimate, url, tags, notes ,...otherAttributes } = taskDetails.task;
