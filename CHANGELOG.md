@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/beauraines/rtm-cli/compare/v1.7.3...v1.8.0) (2023-03-12)
+
+
+### Features
+
+* Add ability to set/update start time ([#32](https://github.com/beauraines/rtm-cli/issues/32)) ([814064f](https://github.com/beauraines/rtm-cli/commit/814064fa7c75fed621c84fd06e022140df7577aa)), closes [beauraines/rtm-cli#16](https://github.com/beauraines/rtm-cli/issues/16)
+
 ### [1.7.3](https://github.com/beauraines/rtm-cli/compare/v1.7.2...v1.7.3) (2023-03-12)
 
 ### [1.7.2](https://github.com/beauraines/rtm-cli/compare/v1.7.1...v1.7.2) (2023-03-12)
