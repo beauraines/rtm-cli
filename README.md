@@ -1,7 +1,7 @@
 Remember The Milk Command Line Interface
 ========================================
 
-**node module:** [rtm-cli](https://www.npmjs.com/package/rtm-cli)<br />
+**node module:** [rtm-cli](https://www.npmjs.com/package/@beauraines/rtm-cli)<br />
 **GitHub repo:** [beauraines/rtm-cli](https://github.com/beauraines/rtm-cli)
 
 ---
@@ -14,7 +14,7 @@ manager.
 
 This is a fork of [dwaring87/rtm-cli](https://github.com/dwaring87/rtm-cli) so that I can maintain, modernize and add features. Your contributions are welcome!
 
-This fork and [beauraines/rtm-api](https://github.com/beauraines/rtm-api) include
+This fork and [beauraines/rtm-api](https://github.com/beauraines/rtm-api) includes
 
 1. performance improvements
 2. rewriting to use Promises
@@ -91,6 +91,7 @@ The main usage of the program:
   renameList|mvl [oldName] [newName]       Rename a List
   reset                                    Reset cached task indices
   setUrl|su [index] [url]                  Set the URL of a Task
+  start [index] [start...]                 Set the Start Date of a Task
   tags|t                                   Display all tags
   task [indices...]                        Display the Task details
   uncomp|unc [indices...]                  Mark one or more Tasks as not complete
