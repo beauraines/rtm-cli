@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.1](https://github.com/beauraines/rtm-cli/compare/v1.8.0...v1.8.1) (2023-03-12)
+
+
+### Bug Fixes
+
+* ensures build command does not purge gitkeep ([feda117](https://github.com/beauraines/rtm-cli/commit/feda117e8abe32d7d3e25645f6d7adb8baffa6a9))
+* updates eslint and pkg ([0eab5ed](https://github.com/beauraines/rtm-cli/commit/0eab5edd0581865af562a28f7e31b8ee8ebe7f67))
+* updates to latest archiver ([bbb9ccb](https://github.com/beauraines/rtm-cli/commit/bbb9ccb215b6a729f0eea737eee76ab52568606c))
+* updates to latest open package ([1f5f9e3](https://github.com/beauraines/rtm-cli/commit/1f5f9e39eee07712e8adb95e0388dd97d5c13876))
+* updates to v4 date-format ([ceaa7c0](https://github.com/beauraines/rtm-cli/commit/ceaa7c051a041d8a1ed8eedb423b37f9caf806f2))
+
 ## [1.8.0](https://github.com/beauraines/rtm-cli/compare/v1.7.3...v1.8.0) (2023-03-12)
 
 
