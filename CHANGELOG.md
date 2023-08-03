@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.3](https://github.com/beauraines/rtm-cli/compare/v1.8.2...v1.8.3) (2023-08-03)
+
+
+### Bug Fixes
+
+* Reads command arguments ([cecc8a4](https://github.com/beauraines/rtm-cli/commit/cecc8a450d41ec6a1df9ae166918209753136458))
+* **url:** not opening url links ([#58](https://github.com/beauraines/rtm-cli/issues/58)) ([32c850a](https://github.com/beauraines/rtm-cli/commit/32c850a323d14c9d7c79e3b4f7c51c90f818a4bd))
+
 ### [1.8.2](https://github.com/beauraines/rtm-cli/compare/v1.8.1...v1.8.2) (2023-04-15)
 
 
