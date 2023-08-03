@@ -6,6 +6,7 @@ const finish = require('../utils/finish.js');
 const filter = require('../utils/filter');
 const { indexPrompt } = require('../utils/prompt')
 const open = require('open');
+const debug = require('debug')('rtm-cli-url');
 
 
 let URLS = [];
@@ -24,7 +25,7 @@ async function action(args, env) {
 
   // Set Open flag
   OPEN = env.open === undefined ? false : env.open;
-
+  debug(OPEN)
   const user = config.user(user => user)
 
   let indices = []
@@ -59,6 +60,7 @@ async function action(args, env) {
           }         
       }
   }
+  debug(URLS)
   // Print URLs
   log.spinner.stop();
   for ( let i = 0; i < URLS.length; i++ ) {
