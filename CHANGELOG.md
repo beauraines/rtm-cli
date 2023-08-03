@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.5](https://github.com/beauraines/rtm-cli/compare/v1.8.4...v1.8.5) (2023-08-03)
+
+
+### Bug Fixes
+
+* revert "Bump commander from 2.20.3 to 10.0.0" ([#61](https://github.com/beauraines/rtm-cli/issues/61)) ([1c7713f](https://github.com/beauraines/rtm-cli/commit/1c7713f7b00579927860a22f53d4f9cdfc20ae19)), closes [beauraines/rtm-cli#34](https://github.com/beauraines/rtm-cli/issues/34) [#58](https://github.com/beauraines/rtm-cli/issues/58) [#59](https://github.com/beauraines/rtm-cli/issues/59)
+
 ### [1.8.4](https://github.com/beauraines/rtm-cli/compare/v1.8.3...v1.8.4) (2023-08-03)
 
 
