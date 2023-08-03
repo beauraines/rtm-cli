@@ -181,7 +181,7 @@ function parseCmd(command) {
     let env = undefined;
     for ( let i = 0; i < arguments.length; i++ ) {
       let arg = arguments[i];
-      if ( typeof arg === 'object' && !Array.isArray(arg) && !arg._events) {
+      if ( typeof arg === 'object' && !Array.isArray(arg) ) {
         env = arg;
       }
       else if ( Array.isArray(arg) && arg.length > 0 ) {
