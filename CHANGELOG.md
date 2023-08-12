@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.7](https://github.com/beauraines/rtm-cli/compare/v1.8.6...v1.8.7) (2023-08-12)
+
+
+### Bug Fixes
+
+* **deps:** bump semver from 5.7.1 to 5.7.2 ([04a3254](https://github.com/beauraines/rtm-cli/commit/04a325499604d83435f0a8e94a49572840ddfc03))
+* **deps:** bump semver from 5.7.1 to 5.7.2 ([#54](https://github.com/beauraines/rtm-cli/issues/54)) ([a40e4e5](https://github.com/beauraines/rtm-cli/commit/a40e4e586fb54eccdf90af2c786406dd6b6385eb))
+
 ### [1.8.6](https://github.com/beauraines/rtm-cli/compare/v1.8.5...v1.8.6) (2023-08-12)
 
 
