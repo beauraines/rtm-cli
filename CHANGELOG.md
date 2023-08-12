@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.6](https://github.com/beauraines/rtm-cli/compare/v1.8.5...v1.8.6) (2023-08-12)
+
+
+### Bug Fixes
+
+* **deps:** bump copy-paste from 1.3.0 to 1.5.3 ([954c8b1](https://github.com/beauraines/rtm-cli/commit/954c8b1c9e2592bbbc0781d5b627d85b44a89bdf))
+* **deps:** bump copy-paste from 1.3.0 to 1.5.3 ([#47](https://github.com/beauraines/rtm-cli/issues/47)) ([65b7dcd](https://github.com/beauraines/rtm-cli/commit/65b7dcdef7a6bb0a747e8758b7ae27ed8f77c80e))
+
 ### [1.8.5](https://github.com/beauraines/rtm-cli/compare/v1.8.4...v1.8.5) (2023-08-03)
 
 
