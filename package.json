@@ -45,7 +45,7 @@
     "debug": "^4.3.4",
     "deepmerge": "^4.0.0",
     "open": "^8.4.2",
-    "ora": "^5.0.0",
+    "ora": "^7.0.1",
     "prompt-sync": "^4.2.0",
     "should-release": "^1.2.0",
     "standard-version": "^9.5.0",
