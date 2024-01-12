@@ -44,7 +44,7 @@
     "dateformat": "^4.0.0",
     "debug": "^4.3.4",
     "deepmerge": "^4.0.0",
-    "open": "^8.4.2",
+    "open": "^10.0.3",
     "ora": "^5.0.0",
     "prompt-sync": "^4.2.0",
     "should-release": "^1.2.0",
