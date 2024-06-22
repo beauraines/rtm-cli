@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.9](https://github.com/beauraines/rtm-cli/compare/v1.8.8...v1.8.9) (2024-06-22)
+
+
+### Bug Fixes
+
+* **deps:** bump cli-table3 from 0.6.3 to 0.6.5 ([#98](https://github.com/beauraines/rtm-cli/issues/98)) ([e60f4f4](https://github.com/beauraines/rtm-cli/commit/e60f4f437551b588df86d870845c683062f5f95d)), closes [cli-table/cli-table3#339](https://github.com/cli-table/cli-table3/issues/339) [cli-table/cli-table3#340](https://github.com/cli-table/cli-table3/issues/340) [cli-table/cli-table3#342](https://github.com/cli-table/cli-table3/issues/342) [cli-table/cli-table3#339](https://github.com/cli-table/cli-table3/issues/339) [cli-table/cli-table3#317](https://github.com/cli-table/cli-table3/issues/317) [cli-table/cli-table3#321](https://github.com/cli-table/cli-table3/issues/321) [cli-table/cli-table3#321](https://github.com/cli-table/cli-table3/issues/321) [#342](https://github.com/beauraines/rtm-cli/issues/342) [#340](https://github.com/beauraines/rtm-cli/issues/340) [#339](https://github.com/beauraines/rtm-cli/issues/339) [#321](https://github.com/beauraines/rtm-cli/issues/321) [#317](https://github.com/beauraines/rtm-cli/issues/317)
+
 ### [1.8.8](https://github.com/beauraines/rtm-cli/compare/v1.8.7...v1.8.8) (2024-06-22)
 
 
