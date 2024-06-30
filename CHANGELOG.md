@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.10](https://github.com/beauraines/rtm-cli/compare/v1.8.9...v1.8.10) (2024-06-30)
+
+
+### Bug Fixes
+
+* **deps:** bump @beauraines/rtm-api from 1.7.0 to 1.12.0 ([#107](https://github.com/beauraines/rtm-cli/issues/107)) ([b3abdf5](https://github.com/beauraines/rtm-cli/commit/b3abdf57e4fd57128f7d6731e510900a5d5bd4a4))
+
 ### [1.8.9](https://github.com/beauraines/rtm-cli/compare/v1.8.8...v1.8.9) (2024-06-22)
 
 
