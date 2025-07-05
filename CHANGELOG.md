@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.14](https://github.com/beauraines/rtm-cli/compare/v1.8.13...v1.8.14) (2025-07-05)
+
+
+### Bug Fixes
+
+* **deps:** bump copy-paste from 1.5.3 to 2.1.1 ([#136](https://github.com/beauraines/rtm-cli/issues/136)) ([6e25366](https://github.com/beauraines/rtm-cli/commit/6e2536698540dbc9739e58e6ce9748c1863327e5))
+* **deps:** bump debug from 4.4.0 to 4.4.1 ([#137](https://github.com/beauraines/rtm-cli/issues/137)) ([8945c7d](https://github.com/beauraines/rtm-cli/commit/8945c7d909386c8a6948bf4f0478d0e30a5e71a7)), closes [debug-js/debug#997](https://github.com/debug-js/debug/issues/997) [#987](https://github.com/beauraines/rtm-cli/issues/987) [debug-js/debug#988](https://github.com/debug-js/debug/issues/988) [debug-js/debug#997](https://github.com/debug-js/debug/issues/997) [debug-js/debug#988](https://github.com/debug-js/debug/issues/988) [#987](https://github.com/beauraines/rtm-cli/issues/987) [#988](https://github.com/beauraines/rtm-cli/issues/988)
+
 ### [1.8.13](https://github.com/beauraines/rtm-cli/compare/v1.8.12...v1.8.13) (2024-12-07)
 
 
