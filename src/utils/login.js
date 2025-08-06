@@ -3,6 +3,7 @@
 const cp = require('copy-paste');
 const log = require('./log.js');
 const finish = require('../utils/finish.js');
+const readline = require("node:readline")
 
 
 /**
@@ -16,6 +17,9 @@ function login(callback) {
   let client = config.client;
 
   log.info("Authorization Required:");
+
+
+
 
   // Get the Auth URL
   log.spinner.start('Getting Login URL...');
@@ -35,8 +39,14 @@ function login(callback) {
     log.style(') and authorize RTM CLI:', true);
     log.style(url, 'blue.underline', true);
 
+
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+
     // Wait for User Input
-    global._rl.question('Press [enter] when done: ', function() {
+    rl.question('Press [enter] when done: ', function() {
       log.spinner.start('Logging In...');
 
       // Get the Authorized User
