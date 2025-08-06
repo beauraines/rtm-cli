@@ -115,6 +115,34 @@ For full documentation on the usage of the built-in commands and options,
 see the [Command Reference](https://github.com/dwaring87/rtm-cli/wiki/Command-Reference).
 
 
+### Troubleshooting
+
+For new users without a `.rtm.json` file, there is an issue preventing the CLI to wait for you to 
+authenticate to RTM in your browser before attempting to login with your token. As a work around,
+you can run the following command from the projects root, once you clone this repo.
+
+It is a two step process, to get a `frob` and authenticate with RTM and then the second step uses
+the `frob` to request a token that gets saved to your `.rtm.json` file.
+
+First,  run `node src/utils/login-workaround-step1.js` You will get an RTM login link and a frob to
+use in the next command
+
+```shell
+Authenticate with RTM by opening the link in your web browser
+https://www.rememberthemilk.com/services/auth/?api_key=cbc762cxxxxxccc4ee1f&perms=delete&frob=8fccccccccc3fbc1df9d5&api_sig=3becccccccccccc305db82b2a
+Once you've authenticated, run the following command
+node src/utils/login-workaround-step2.js  8f49634xxxxxxxxxxxxxxxfd03fbc1df9d5
+Warning! This wil overwrite an existing ~/.rtm.json if you have one.
+```
+
+Then run the command it gives you `node src/utils/login-workaround-step2.js <frob>` and it will get 
+your auth token and save it to `~/.rtm.json`. 
+
+Change the permissions on your `~/.rtm.json` to owner ownly `chmod 600`
+
+With an `~/.rtm.json` you should now be able to use RTM CLI.
+
+
 ## Configuration
 
 RTM CLI has a number of properties that can be configured using a separate JSON configuration
