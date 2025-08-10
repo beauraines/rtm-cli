@@ -4,6 +4,9 @@ Remember The Milk Command Line Interface
 **node module:** [rtm-cli](https://www.npmjs.com/package/@beauraines/rtm-cli)<br />
 **GitHub repo:** [beauraines/rtm-cli](https://github.com/beauraines/rtm-cli)
 
+
+❗❗ **Resolved login issue blocking new users** ❗❗
+
 ---
 
 This Node module provides a command line interface, written in JavaScript,
