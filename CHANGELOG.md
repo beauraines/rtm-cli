@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/beauraines/rtm-cli/compare/v1.8.14...v1.9.0) (2025-08-10)
+
+
+### Features
+
+* login workaround ([#145](https://github.com/beauraines/rtm-cli/issues/145)) ([7a308d4](https://github.com/beauraines/rtm-cli/commit/7a308d4d164fdd4ecac7507a4e2940d3a0b2d325)), closes [#68](https://github.com/beauraines/rtm-cli/issues/68) [#131](https://github.com/beauraines/rtm-cli/issues/131)
+
 ### [1.8.14](https://github.com/beauraines/rtm-cli/compare/v1.8.13...v1.8.14) (2025-07-05)
 
 
