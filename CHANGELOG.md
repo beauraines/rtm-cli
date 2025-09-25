@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.2](https://github.com/beauraines/rtm-cli/compare/v1.9.1...v1.9.2) (2025-09-25)
+
+
+### Bug Fixes
+
+* **deps:** bump brace-expansion from 1.1.11 to 1.1.12 ([#148](https://github.com/beauraines/rtm-cli/issues/148)) ([9ee267d](https://github.com/beauraines/rtm-cli/commit/9ee267d67ed6fa33752b70942cde00b32d632179))
+
 ### [1.9.1](https://github.com/beauraines/rtm-cli/compare/v1.9.0...v1.9.1) (2025-08-10)
 
 
