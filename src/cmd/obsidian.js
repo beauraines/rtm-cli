@@ -92,10 +92,10 @@ function displayObsidianTask(idx, task) {
     let dueISO = new Date(due).toISOString().split('T')[0];
     line += ` 📅 ${dueISO}`;
     
-    // TODO add support for recurrence https://publish.obsidian.md/tasks/Getting+Started/Recurring+Tasks
+    // TODO (depends on beauraines/rtm-api#66): add support for recurrence https://publish.obsidian.md/tasks/Getting+Started/Recurring+Tasks
     // Recurrence indicator
     // if (isRecurring) {
-    //   // TODO: map RTM recurrence rule to Obsidian syntax (e.g. every 1 day)
+    //   // TODO (depends on beauraines/rtm-api#66): map RTM recurrence rule to Obsidian syntax (e.g. every 1 day)
     //   // ! rtm-api may need to be extended to include the recurrence interval
     //   if (recurrence) {
     //     line += ` 🔁 ${recurrence}`;
