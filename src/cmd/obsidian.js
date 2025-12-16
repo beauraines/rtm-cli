@@ -61,6 +61,8 @@ function displayObsidianTask(idx, task) {
     line += ` [${url}](${url})`;
   }
 
+  // TODO figure out approach for notes. Any meta data or links must come BEFORE the emoji tags
+
   if (added) {
     let createdISO = new Date(added).toISOString().split('T')[0];
     line += ` ➕ ${createdISO}`;
