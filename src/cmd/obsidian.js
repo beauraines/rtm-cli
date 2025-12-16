@@ -50,13 +50,17 @@ async function action(args, env) {
  */
 function displayObsidianTask(idx, task) {
   debug(task);
-  const { name, priority, start, due, completed, tags = [], _list, list_id } = task;
+  const { name, priority, start, due, completed, tags = [], added, url, _list, list_id } = task;
 
   // TODO: lookup list_id to convert to actual list name when API provides list object
   const listName = _list && _list.name ? _list.name : list_id;
   const checkbox = completed ? 'x' : ' ';
   let line = `- [${checkbox}] ${name}`;
 
+  if (added) {
+    let createdISO = new Date(added).toISOString().split('T')[0];
+    line += ` ➕ ${createdISO}`;
+  }
   if (start) {
     let startISO = new Date(start).toISOString().split('T')[0];
     line += ` 🛫 ${startISO}`;
