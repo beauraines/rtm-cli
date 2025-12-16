@@ -56,6 +56,10 @@ function displayObsidianTask(idx, task) {
   const listName = _list && _list.name ? _list.name : list_id;
   const checkbox = completed ? 'x' : ' ';
   let line = `- [${checkbox}] ${name}`;
+  // Append URL immediately after task name
+  if (url) {
+    line += ` [${url}](${url})`;
+  }
 
   if (added) {
     let createdISO = new Date(added).toISOString().split('T')[0];
