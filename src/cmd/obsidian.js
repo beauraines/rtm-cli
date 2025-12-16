@@ -76,6 +76,10 @@ function displayObsidianTask(idx, task) {
     line += ` 📅 ${dueISO}`;
   }
 
+// TODO add support for recurrence https://publish.obsidian.md/tasks/Getting+Started/Recurring+Tasks
+
+// TODO Figure out approach for time estimates
+
 const priorityMap = { '1': '🔺', '2': '🔼', '3': '🔽' };
   if (priority && priorityMap[priority]) {
     line += ` ${priorityMap[priority]}`;
