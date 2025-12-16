@@ -51,6 +51,8 @@ async function action(args, env) {
 function displayObsidianTask(idx, task) {
   debug(task);
   const { name, priority, start, due, completed, tags = [], _list, list_id } = task;
+
+  // TODO: lookup list_id to convert to actual list name when API provides list object
   const listName = _list && _list.name ? _list.name : list_id;
   const checkbox = completed ? 'x' : ' ';
   let line = `- [${checkbox}] ${name}`;
