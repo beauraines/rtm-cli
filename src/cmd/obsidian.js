@@ -63,7 +63,7 @@ async function action(args, env) {
  */
 function displayObsidianTask(idx, task) {
   debug(task);
-  const { name, priority, start, due, completed, tags = [], added, url, list_id, notes = [], estimate } = task;
+  const { name, priority, start, due, completed, tags = [], added, url, list_id, notes = [], estimate, isRecurring, recurrence } = task;
 
   const listName = LIST_MAP.get(list_id) || list_id;
   // Slugify list name for Obsidian tag
@@ -91,9 +91,20 @@ function displayObsidianTask(idx, task) {
   if (due) {
     let dueISO = new Date(due).toISOString().split('T')[0];
     line += ` 📅 ${dueISO}`;
+    
+    // TODO add support for recurrence https://publish.obsidian.md/tasks/Getting+Started/Recurring+Tasks
+    // Recurrence indicator
+    // if (isRecurring) {
+    //   // TODO: map RTM recurrence rule to Obsidian syntax (e.g. every 1 day)
+    //   // ! rtm-api may need to be extended to include the recurrence interval
+    //   if (recurrence) {
+    //     line += ` 🔁 ${recurrence}`;
+    //   } else {
+    //     line += ` 🔁`;
+    //   }
+    // }
   }
 
-// TODO add support for recurrence https://publish.obsidian.md/tasks/Getting+Started/Recurring+Tasks
 
 // TODO Figure out approach for time estimates
   if (estimate) {
