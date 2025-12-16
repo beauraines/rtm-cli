@@ -8,6 +8,8 @@ const { indexPrompt } = require('../utils/prompt');
 const debug = require('debug')('rtm-cli-obsidian');
 
 let TASKS = [];
+// Map of RTM list IDs to names
+let LIST_MAP = new Map();
 
 /**
  * This command outputs tasks in Obsidian Tasks markdown syntax
@@ -24,6 +26,17 @@ async function action(args, env) {
   } else {
     // Support multiple indices array
     indices = Array.isArray(args[0]) ? args[0] : [args[0]];
+  }
+
+  // Fetch all RTM lists to map IDs to names
+  try {
+    log.spinner.start('Fetching Lists');
+    const lists = await new Promise((res, rej) => user.lists.get((err, lists) => err ? rej(err) : res(lists)));
+    LIST_MAP = new Map(lists.map(l => [l.id, l.name]));
+  } catch (e) {
+    log.spinner.warn(`Could not fetch lists: ${e.message || e}`);
+  } finally {
+    log.spinner.stop();
   }
 
   log.spinner.start('Getting Task(s)');
@@ -50,10 +63,11 @@ async function action(args, env) {
  */
 function displayObsidianTask(idx, task) {
   debug(task);
-  const { name, priority, start, due, completed, tags = [], added, url, _list, list_id } = task;
+  const { name, priority, start, due, completed, tags = [], added, url, list_id } = task;
 
-  // TODO: lookup list_id to convert to actual list name when API provides list object
-  const listName = _list && _list.name ? _list.name : list_id;
+  const listName = LIST_MAP.get(list_id) || list_id;
+  // Slugify list name for Obsidian tag
+  const listTag = listName.replace(/\s+/g, '-');
   const checkbox = completed ? 'x' : ' ';
   let line = `- [${checkbox}] ${name}`;
   // Append URL immediately after task name
@@ -86,7 +100,7 @@ const priorityMap = { '1': '🔺', '2': '🔼', '3': '🔽' };
   }
 
   // Add list tag first, then other tags
-  const allTags = [`#${listName}`, ...tags.map(t => `#${t}`)];
+  const allTags = [`#${listTag}`, ...tags.map(t => `#${t}`)];
   const tagStr = allTags.map(t => ` ${t}`).join('');
   line += `${tagStr}`;
 
