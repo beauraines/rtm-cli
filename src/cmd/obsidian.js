@@ -63,7 +63,7 @@ async function action(args, env) {
  */
 function displayObsidianTask(idx, task) {
   debug(task);
-  const { name, priority, start, due, completed, tags = [], added, url, list_id } = task;
+  const { name, priority, start, due, completed, tags = [], added, url, list_id, notes = [], estimate } = task;
 
   const listName = LIST_MAP.get(list_id) || list_id;
   // Slugify list name for Obsidian tag
@@ -76,6 +76,9 @@ function displayObsidianTask(idx, task) {
   }
 
   // TODO figure out approach for notes. Any meta data or links must come BEFORE the emoji tags
+  if (notes.length) {
+    line += ` 📓`;
+  }
 
   if (added) {
     let createdISO = new Date(added).toISOString().split('T')[0];
@@ -93,8 +96,11 @@ function displayObsidianTask(idx, task) {
 // TODO add support for recurrence https://publish.obsidian.md/tasks/Getting+Started/Recurring+Tasks
 
 // TODO Figure out approach for time estimates
+  if (estimate) {
+    line += ` ⌛`;
+  }
 
-const priorityMap = { '1': '🔺', '2': '🔼', '3': '🔽' };
+  const priorityMap = { '1': '🔺', '2': '🔼', '3': '🔽' };
   if (priority && priorityMap[priority]) {
     line += ` ${priorityMap[priority]}`;
   }
