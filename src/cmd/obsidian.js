@@ -74,7 +74,11 @@ function displayObsidianTask(idx, task) {
   if (url) {
     line += ` [${url}](${url})`;
   }
-
+  // Estimate duration (after URL, before other emojis)
+  if (estimate) {
+    const dur = formatDuration(estimate);
+    line += ` ⌛${dur}`;
+  }
   // TODO figure out approach for notes. Any meta data or links must come BEFORE the emoji tags
   if (notes.length) {
     line += ` 📓`;
@@ -106,10 +110,6 @@ function displayObsidianTask(idx, task) {
   }
 
 
-// TODO Figure out approach for time estimates
-  if (estimate) {
-    line += ` ⌛`;
-  }
 
   const priorityMap = { '1': '🔺', '2': '🔼', '3': '🔽' };
   if (priority && priorityMap[priority]) {
@@ -124,6 +124,18 @@ function displayObsidianTask(idx, task) {
   line += ` 🆔 ${idx}`;
 
   log(line);
+}
+
+// Helper: format ISO8601 durations (e.g. PT1H30M) to human label
+function formatDuration(iso) {
+  const match = iso.match(/^P(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)$/);
+  if (!match) return iso;
+  const [, H, M, S] = match;
+  const parts = [];
+  if (H) parts.push(`${H}h`);
+  if (M) parts.push(`${M}m`);
+  if (S) parts.push(`${S}s`);
+  return parts.join('') || iso;
 }
 
 module.exports = {
