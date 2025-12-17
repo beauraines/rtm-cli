@@ -39,7 +39,7 @@
     "@beauraines/rtm-api": "^1.13.1",
     "chalk": "^4.0.0",
     "cli-table3": "^0.6.3",
-    "commander": "^2.11.0",
+    "commander": "^11.0.0",
     "copy-paste": "^2.1.1",
     "dateformat": "^4.0.0",
     "debug": "^4.3.4",
