@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/beauraines/rtm-cli/compare/v1.9.3...v1.10.0) (2025-12-17)
+
+
+### Features
+
+* new command to convert tasks to Obsidian Task format ([#157](https://github.com/beauraines/rtm-cli/issues/157)) ([23c2b39](https://github.com/beauraines/rtm-cli/commit/23c2b391c4a507927cac2aeaed8f5de8557c6b8a))
+
 ### [1.9.3](https://github.com/beauraines/rtm-cli/compare/v1.9.2...v1.9.3) (2025-10-05)
 
 
