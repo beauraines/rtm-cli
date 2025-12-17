@@ -1,5 +1,6 @@
 'use strict';
 
+const df = require('dateformat');
 const log = require('../utils/log.js');
 const config = require('../utils/config.js');
 const finish = require('../utils/finish.js');
@@ -93,15 +94,15 @@ function displayObsidianTask(idx, task) {
   }
 
   if (added) {
-    let createdISO = new Date(added).toISOString().split('T')[0];
+    let createdISO = df(added,"isoDate");
     line += ` ➕ ${createdISO}`;
   }
   if (start) {
-    let startISO = new Date(start).toISOString().split('T')[0];
+    let startISO = df(start,"isoDate");
     line += ` 🛫 ${startISO}`;
   }
   if (due) {
-    let dueISO = new Date(due).toISOString().split('T')[0];
+    let dueISO = df(due,"isoDate");
     line += ` 📅 ${dueISO}`;
     
     // Recurrence indicator
