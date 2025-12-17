@@ -63,7 +63,7 @@ async function action(args, env) {
  */
 function displayObsidianTask(idx, task) {
   debug(task);
-  const { name, priority, start, due, completed, tags = [], added, url, list_id, notes = [], estimate, isRecurring, recurrence } = task;
+  const { name, priority, start, due, completed, tags = [], added, url, list_id, notes = [], estimate, isRecurring, recurrenceRuleRaw } = task;
 
   const listName = LIST_MAP.get(list_id) || list_id;
   // Slugify list name for Obsidian tag
@@ -96,17 +96,15 @@ function displayObsidianTask(idx, task) {
     let dueISO = new Date(due).toISOString().split('T')[0];
     line += ` 📅 ${dueISO}`;
     
-    // TODO (depends on beauraines/rtm-api#66): add support for recurrence https://publish.obsidian.md/tasks/Getting+Started/Recurring+Tasks
     // Recurrence indicator
-    // if (isRecurring) {
-    //   // TODO (depends on beauraines/rtm-api#66): map RTM recurrence rule to Obsidian syntax (e.g. every 1 day)
-    //   // ! rtm-api may need to be extended to include the recurrence interval
-    //   if (recurrence) {
-    //     line += ` 🔁 ${recurrence}`;
-    //   } else {
-    //     line += ` 🔁`;
-    //   }
-    // }
+    if (isRecurring) {
+      if (recurrenceRuleRaw) {
+        const rec = formatRecurrence(recurrenceRuleRaw);
+        line += ` 🔁 ${rec}`;
+      } else {
+        line += ` 🔁`;
+      }
+    }
   }
 
 
@@ -118,6 +116,7 @@ function displayObsidianTask(idx, task) {
 
   // Add list tag first, then other tags
   const allTags = [`#${listTag}`, ...tags.map(t => `#${t}`)];
+  // ! There is a problem with tags that include `@` maybe look at location:tag or context:tag or list:tag
   const tagStr = allTags.map(t => ` ${t}`).join('');
   line += `${tagStr}`;
 
@@ -136,6 +135,68 @@ function formatDuration(iso) {
   if (M) parts.push(`${M}m`);
   if (S) parts.push(`${S}s`);
   return parts.join('') || iso;
+}
+
+// Helper: format RFC5545 recurrence to Obsidian Tasks syntax
+function formatRecurrence(raw) {
+  let rule = raw;
+  if (typeof raw === 'string') {
+    try {
+      rule = JSON.parse(raw);
+    } catch (e) {
+      return raw;
+    }
+  }
+  if (rule.$t) {
+    const parts = rule.$t.split(';');
+    const map = {};
+    parts.forEach(p => {
+      const [k, v] = p.split('=');
+      map[k] = v;
+    });
+    const FREQ = map.FREQ;
+    const INTERVAL = parseInt(map.INTERVAL) || 1;
+    const BYDAY = map.BYDAY;
+    const BYMONTH = map.BYMONTH;
+    const BYMONTHDAY = map.BYMONTHDAY;
+    const getOrdinal = n => {
+      const s = ['th','st','nd','rd'];
+      const v = n % 100;
+      return s[(v-20)%10] || s[v] || s[0];
+    };
+    const weekdayNames = { MO:'Monday', TU:'Tuesday', WE:'Wednesday', TH:'Thursday', FR:'Friday', SA:'Saturday', SU:'Sunday' };
+    const monthNames = { '1':'January','2':'February','3':'March','4':'April','5':'May','6':'June','7':'July','8':'August','9':'September','10':'October','11':'November','12':'December' };
+    switch (FREQ) {
+      case 'DAILY':
+        return INTERVAL === 1 ? 'every day' : `every ${INTERVAL} days`;
+      case 'WEEKLY': {
+        const days = BYDAY ? BYDAY.split(',').map(d => weekdayNames[d] || d).join(', ') : '';
+        if (INTERVAL > 1) {
+          return days ? `every ${INTERVAL} weeks on ${days}` : `every ${INTERVAL} weeks`;
+        }
+        return days ? `every ${days}` : 'every week';
+      }
+      case 'MONTHLY':
+        if (BYMONTHDAY) {
+          const day = parseInt(BYMONTHDAY);
+          const ord = getOrdinal(day);
+          return INTERVAL > 1 ? `every ${INTERVAL} months on the ${day}${ord}` : `every month on the ${day}${ord}`;
+        }
+        return INTERVAL > 1 ? `every ${INTERVAL} months` : 'every month';
+      case 'YEARLY':
+        if (BYMONTH && BYMONTHDAY) {
+          const month = monthNames[BYMONTH] || BYMONTH;
+          const day = parseInt(BYMONTHDAY);
+          const ord = getOrdinal(day);
+          return INTERVAL > 1 ? `every ${INTERVAL} years on ${month} ${day}${ord}` : `every year on ${month} ${day}${ord}`;
+        }
+        return INTERVAL > 1 ? `every ${INTERVAL} years` : 'every year';
+    }
+  }
+  if (rule.every) {
+    return `every ${rule.every}`;
+  }
+  return '';
 }
 
 module.exports = {
