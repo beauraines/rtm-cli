@@ -98,7 +98,7 @@ The main usage of the program:
   setUrl|su [index] [url]                  Set the URL of a Task
   start [index] [start...]                 Set the Start Date of a Task
   tags|t                                   Display all tags
-  task [indices...]                        Display the Task details
+  task|tasks [indices...]                  Display the Task details
   uncomp|unc [indices...]                  Mark one or more Tasks as not complete
   url [options] [indices...]               Display the associated URL of a Task
   whoami                                   Display RTM user information
