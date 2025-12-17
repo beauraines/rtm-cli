@@ -46,3 +46,19 @@ describe('humanizeRecurrence', () => {
     expect(humanizeRecurrence({ every: '1' })).toBe('');
   });
 });
+
+describe('humanizeRecurrence additional input types', () => {
+  test('parses recurrence from stringified JSON', () => {
+    const str = '{"$t":"FREQ=WEEKLY;INTERVAL=1;WKST=SU"}';
+    expect(humanizeRecurrence(str)).toMatch(/every week/i);
+  });
+
+  test('parses recurrence from raw rule string', () => {
+    const raw = 'FREQ=DAILY;INTERVAL=1';
+    expect(humanizeRecurrence(raw)).toMatch(/every day/i);
+  });
+
+  test('returns empty for non-rule string without JSON', () => {
+    expect(humanizeRecurrence('not a rule')).toBe('');
+  });
+});

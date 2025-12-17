@@ -31,12 +31,37 @@ function humanizeDuration(iso) {
  * @param {object} rawRule
  * @returns {string}
  */
-function humanizeRecurrence(rawRule) {
-  if (!rawRule || typeof rawRule.$t !== 'string') return '';
+function humanizeRecurrence(input) {
+  let ruleObj;
+  if (typeof input === 'string') {
+    // Try to parse JSON string
+    try {
+      ruleObj = JSON.parse(input);
+    } catch (e) {
+      // Not JSON: maybe raw RRULE string
+      if (input.includes('FREQ=')) {
+        try {
+          return RRule.fromString(input).toText();
+        } catch (e) {
+          return input;
+        }
+      }
+      return '';
+    }
+  } else if (typeof input === 'object' && input !== null) {
+    ruleObj = input;
+  } else {
+    return '';
+  }
+
+  const ruleString = ruleObj.$t;
+  if (typeof ruleString !== 'string') {
+    return '';
+  }
   try {
-    return RRule.fromString(rawRule.$t).toText();
+    return RRule.fromString(ruleString).toText();
   } catch (e) {
-    return rawRule.$t;
+    return ruleString;
   }
 }
 

@@ -117,6 +117,7 @@ function displayTask(taskDetails) {
     log.style(`Recurrence: `,styles.index)
     log(humanizeRecurrence(recurrenceRuleRaw))
   }
+
   log.style(`Is Subtask: `,styles.index)
   log(`${isSubtask}`)
   log.style(`Estimate: `,styles.index)
