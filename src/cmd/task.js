@@ -83,6 +83,7 @@ async function action(args, env) {
 
 module.exports = {
   command: 'task [indices...]',
+  alias: 'tasks',
   options: [],
   description: 'Display the Task details',
   action: action
