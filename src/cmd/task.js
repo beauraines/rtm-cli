@@ -9,6 +9,7 @@ const debug = require('debug')('rtm-cli-task');
 
 
 let TASKS = [];
+let LIST_MAP = new Map();
 
 // Get Display Styles
 let styles = config.get().styles;
@@ -31,6 +32,18 @@ async function action(args, env) {
   if ( args.length < 1 ) {
     indices = indexPrompt('Task:')
     args[0] = indices
+  }
+
+
+  // Fetch all RTM lists to map IDs to names
+  try {
+    log.spinner.start('Fetching Lists');
+    const lists = await new Promise((res, rej) => user.lists.get((err, lists) => err ? rej(err) : res(lists)));
+    LIST_MAP = new Map(lists.map(l => [l.id, l.name]));
+  } catch (e) {
+    log.spinner.warn(`Could not fetch lists: ${e.message || e}`);
+  } finally {
+    log.spinner.stop();
   }
 
 
@@ -80,9 +93,14 @@ function displayTask(taskDetails) {
   let index = taskDetails.index;
   // eslint-disable-next-line no-unused-vars
   const { _list, list_id, taskseries_id, task_id, _index, name, priority, start, due, completed, isRecurring, isSubtask, estimate, url, tags, notes ,...otherAttributes } = taskDetails.task;
+  
+  const listName = LIST_MAP.get(list_id) || "Not found";
+  
   log.style(index + " " + name,styles.list,true);
-  log.style(`List: `,styles.index)
-  log(`${list_id}`) // TODO lookup the list name
+  log.style(`List Name: `,styles.index)
+  log(`${listName}`)
+  log.style(`List Id: `,styles.index)
+  log(`${list_id}`)
   log.style(`Priority: `,styles.index)
   log.style(`${priority}`,styles.priority[priority],true)
   log.style(`Start: `,styles.index)
