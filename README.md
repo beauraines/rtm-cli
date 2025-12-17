@@ -7,6 +7,8 @@ Remember The Milk Command Line Interface
 
 ❗❗ **Resolved login issue blocking new users** ❗❗
 
+❗❗ **Adds an output format to convert tasks to [Obsidian Tasks](https://publish.obsidian.md/tasks/Getting+Started/Getting+Started) format** ❗❗
+
 ---
 
 This Node module provides a command line interface, written in JavaScript,
@@ -101,6 +103,7 @@ The main usage of the program:
   url [options] [indices...]               Display the associated URL of a Task
   whoami                                   Display RTM user information
   overdue                                  Display incomplete tasks that are overdue
+  obsidian [indices...]                    Output tasks in Obsidian Task syntax. Export URLs and notes to configured directory (defaults to system temp dir)
 ```
 
 
@@ -131,9 +134,9 @@ Currently, the configuration can customize:
 - the display of completed tasks
 - the display of tasks with due dates in the future
 - **custom aliases** for existing commands
-  - these are useful for applying commonly used [RTM advanced search](https://www.rememberthemilk.com/help/answer/basics-search-advanced)
-  filters to display commands
-  - ex: `overdue` = `ls dueBefore:today AND status:incomplete`
+  - these are useful for applying commonly used [RTM advanced search](https://www.rememberthemilk.com/help/answer/basics-search-advanced) filters to display commands
+
+- obsidianTaskDir: path to a directory where the `obsidian` command writes URLs and notes (defaults to the system temporary directory)
 
 
 For full documentation on the configuration properties, see the
@@ -154,3 +157,24 @@ For information on installing plugins, see the
 
 For information on creating commands, see the **Creating Commands** section
 in the [Project Wiki](https://github.com/dwaring87/rtm-cli/wiki#creating-commands).
+
+### Obsidian Usage Example
+
+Will create output in the [Obsidian Tasks](https://publish.obsidian.md/tasks/Getting+Started/Getting+Started) format. Currently, this only works for incomplete tasks.
+
+For example, `rtm ls icemaker` would output 
+
+```
+     Personal
+4330 (1) descale icemaker 🔁 | Tue Dec-16
+``` 
+
+and `rtm obsidian 4330` would output 
+
+`- [ ] descale icemaker ⌛30m ➕ 2025-09-28 📅 2025-12-16 🔁 every 3 months 🔺 #Personal 🆔 4330`
+
+which could be written to a file in your Obsidian Vault.
+
+```shell
+rtm ls due:today | cut -wf1 | sort | xargs ./src/cli.js obsidian >> ~/LocalDocs/Test/Tasks/rtm.md
+```

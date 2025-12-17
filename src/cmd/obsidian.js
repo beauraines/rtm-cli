@@ -6,6 +6,9 @@ const finish = require('../utils/finish.js');
 const filter = require('../utils/filter');
 const { indexPrompt } = require('../utils/prompt');
 const debug = require('debug')('rtm-cli-obsidian');
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
 
 let TASKS = [];
 // Map of RTM list IDs to names
@@ -70,18 +73,23 @@ function displayObsidianTask(idx, task) {
   const listTag = listName.replace(/\s+/g, '-');
   const checkbox = completed ? 'x' : ' ';
   let line = `- [${checkbox}] ${name}`;
-  // Append URL immediately after task name
-  if (url) {
-    line += ` [${url}](${url})`;
-  }
-  // Estimate duration (after URL, before other emojis)
+
   if (estimate) {
     const dur = formatDuration(estimate);
     line += ` ⌛${dur}`;
   }
-  // TODO figure out approach for notes. Any meta data or links must come BEFORE the emoji tags
+
   if (notes.length) {
     line += ` 📓`;
+  }
+
+  if (url) {
+    line += ` 🔗`;
+  }
+
+  // Add Obsidian wiki link to the exported detail file
+  if (url || notes.length) {
+    line += ` [[${idx}]]`;
   }
 
   if (added) {
@@ -121,6 +129,10 @@ function displayObsidianTask(idx, task) {
   line += `${tagStr}`;
 
   line += ` 🆔 ${idx}`;
+
+  if (url || notes.length) {
+    exportDetails(idx, url, notes);
+  }
 
   log(line);
 }
@@ -199,9 +211,39 @@ function formatRecurrence(raw) {
   return '';
 }
 
+// Helper: export URL and notes to a file in /tmp
+function exportDetails(idx, url, notes) {
+  const fileName = `${idx}.md`;
+  const exportDir = (process.env.NODE_ENV === 'test' ? os.tmpdir() : (config.config.obsidianTaskDir || os.tmpdir()));
+  const filePath = path.join(exportDir, fileName);
+  let content = '';
+  if (url) {
+    content += `🔗 [${url}](${url})\n\n---\n\n`;
+  }
+  if (notes && notes.length) {
+    notes.forEach((n, i) => {
+      const title = n.title || '';
+      const body = n.content || n.body || n.text || '';
+      if (title) content += `${title}\n`;
+      if (body) content += `${body}\n`;
+      content += `\n---\n\n`;
+    });
+  }
+  // Trim trailing newline for combined URL and notes case
+  if (url && notes && notes.length) {
+    content = content.replace(/\n$/, '');
+  }
+  try {
+    fs.writeFileSync(filePath, content);
+  } catch (e) {
+    console.error(`Failed to write details file for task ${idx}: ${e}`);
+  }
+}
+
 module.exports = {
   command: 'obsidian [indices...]',
   options: [],
-  description: 'Output tasks in Obsidian Tasks syntax',
-  action: action
+  description: 'Output tasks in Obsidian Task syntax. Export URLs and notes to configured directory (defaults to system temp dir)\n\nusage: rtm -x true ls due:today | cut -wf1 | sort | xargs ./src/cli.js -x true obsidian >> ~/LocalDocs/Test/Tasks/rtm.md',
+  action: action,
+  exportDetails
 };
