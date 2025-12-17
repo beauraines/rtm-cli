@@ -5,6 +5,7 @@ const log = require('../utils/log.js');
 const config = require('../utils/config.js');
 const finish = require('../utils/finish.js');
 const filter = require('../utils/filter');
+const sanitizeTag = require('../utils/sanitizeTag');
 const { indexPrompt } = require('../utils/prompt');
 const debug = require('debug')('rtm-cli-obsidian');
 const fs = require('fs');
@@ -124,7 +125,7 @@ function displayObsidianTask(idx, task) {
   }
 
   // Add list tag first, then other tags
-  const allTags = [`#${listTag}`, ...tags.map(t => `#${t}`)];
+  const allTags = [`#${listTag}`, ...tags.map(t => `#${sanitizeTag(t)}`)];
   // ! There is a problem with tags that include `@` maybe look at location:tag or context:tag or list:tag
   const tagStr = allTags.map(t => ` ${t}`).join('');
   line += `${tagStr}`;
