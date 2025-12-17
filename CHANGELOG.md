@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/beauraines/rtm-cli/compare/v1.10.0...v1.11.0) (2025-12-17)
+
+
+### Features
+
+* **tasks:** adds list name to command output ([#161](https://github.com/beauraines/rtm-cli/issues/161)) ([174c669](https://github.com/beauraines/rtm-cli/commit/174c669e3c667278ffe3a295331d1e9041feae35))
+
 ## [1.10.0](https://github.com/beauraines/rtm-cli/compare/v1.9.3...v1.10.0) (2025-12-17)
 
 
