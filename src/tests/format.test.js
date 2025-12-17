@@ -32,6 +32,11 @@ describe('humanizeRecurrence', () => {
     expect(result).toMatch(/every 2 weeks on Monday, Wednesday/i);
   });
 
+  test('parses default weekly recurrence', () => {
+    const rawRule = { every: '0', $t: 'FREQ=WEEKLY;INTERVAL=1;WKST=SU' };
+    expect(humanizeRecurrence(rawRule)).toMatch(/every week/i);
+  });
+
   test('returns raw for invalid rule', () => {
     const rawRule = { $t: 'invalid' };
     expect(humanizeRecurrence(rawRule)).toBe('invalid');
