@@ -1,0 +1,43 @@
+'use strict';
+
+const { humanizeDuration, humanizeRecurrence } = require('../utils/format');
+
+describe('humanizeDuration', () => {
+  test('parses hours and minutes', () => {
+    expect(humanizeDuration('PT1H30M')).toBe('1 hour 30 minutes');
+  });
+
+  test('parses days and seconds', () => {
+    expect(humanizeDuration('P2DT15S')).toBe('2 days 15 seconds');
+  });
+
+  test('returns input for invalid strings', () => {
+    expect(humanizeDuration('invalid')).toBe('invalid');
+  });
+
+  test('returns empty for non-string', () => {
+    expect(humanizeDuration(123)).toBe('');
+  });
+});
+
+describe('humanizeRecurrence', () => {
+  test('parses daily recurrence', () => {
+    const rawRule = { $t: 'FREQ=DAILY;INTERVAL=1' };
+    expect(humanizeRecurrence(rawRule)).toMatch(/every day/i);
+  });
+
+  test('parses weekly recurrence with interval', () => {
+    const rawRule = { $t: 'FREQ=WEEKLY;INTERVAL=2;BYDAY=MO,WE' };
+    const result = humanizeRecurrence(rawRule);
+    expect(result).toMatch(/every 2 weeks on Monday, Wednesday/i);
+  });
+
+  test('returns raw for invalid rule', () => {
+    const rawRule = { $t: 'invalid' };
+    expect(humanizeRecurrence(rawRule)).toBe('invalid');
+  });
+
+  test('empty when no $t', () => {
+    expect(humanizeRecurrence({ every: '1' })).toBe('');
+  });
+});
