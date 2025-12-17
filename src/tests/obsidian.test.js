@@ -6,7 +6,7 @@ const { exportDetails } = require('../cmd/obsidian');
 describe('exportDetails', () => {
   const tmpDir = os.tmpdir();
   const idx = 'test123';
-  const filePath = path.join(tmpDir, `${idx}.md`);
+  const filePath = path.join(tmpDir, 'rtm', `${idx}.md`);
 
   afterEach(() => {
     if (fs.existsSync(filePath)) {

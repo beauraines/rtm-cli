@@ -234,6 +234,8 @@ function exportDetails(idx, url, notes) {
   if (url && notes && notes.length) {
     content = content.replace(/\n$/, '');
   }
+  // Ensure the export directory exists
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
   try {
     fs.writeFileSync(filePath, content);
   } catch (e) {
