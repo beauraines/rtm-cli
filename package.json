@@ -44,9 +44,11 @@
     "dateformat": "^4.0.0",
     "debug": "^4.3.4",
     "deepmerge": "^4.0.0",
+    "iso8601-duration": "^2.1.3",
     "open": "^8.4.2",
     "ora": "^5.0.0",
     "prompt-sync": "^4.2.0",
+    "rrule": "^2.8.1",
     "should-release": "^1.2.0",
     "standard-version": "^9.5.0",
     "window-size": "^1.1.0"

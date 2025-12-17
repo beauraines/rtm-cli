@@ -6,6 +6,7 @@ const finish = require('../utils/finish.js');
 const filter = require('../utils/filter');
 const { indexPrompt } = require('../utils/prompt')
 const debug = require('debug')('rtm-cli-task');
+const { humanizeDuration, humanizeRecurrence } = require('../utils/format');
 
 
 let TASKS = [];
@@ -93,7 +94,7 @@ function displayTask(taskDetails) {
   debug(taskDetails)
   let index = taskDetails.index;
   // eslint-disable-next-line no-unused-vars
-  const { _list, list_id, taskseries_id, task_id, _index, name, priority, start, due, completed, isRecurring, isSubtask, estimate, url, tags, notes ,...otherAttributes } = taskDetails.task;
+  const { _list, list_id, taskseries_id, task_id, _index, name, priority, start, due, completed, isRecurring, recurrenceRuleRaw, isSubtask, estimate, url, tags, notes, ...otherAttributes } = taskDetails.task;
   
   const listName = LIST_MAP.get(list_id) || "Not found";
   
@@ -112,10 +113,15 @@ function displayTask(taskDetails) {
   log(`${completed}`)
   log.style(`Is Recurring: `,styles.index)
   log(`${isRecurring}`)
+  if (isRecurring && recurrenceRuleRaw) {
+    log.style(`Recurrence: `,styles.index)
+    log(humanizeRecurrence(recurrenceRuleRaw))
+  }
+
   log.style(`Is Subtask: `,styles.index)
   log(`${isSubtask}`)
   log.style(`Estimate: `,styles.index)
-  log(`${estimate}`)
+  log(humanizeDuration(estimate))
   log.style(`Url: `,styles.index)
   log(`${url}`)
   log.style(`Tags: `,styles.index)
