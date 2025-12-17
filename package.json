@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/beauraines/rtm-cli#readme",
   "dependencies": {
-    "@beauraines/rtm-api": "^1.6.0",
+    "@beauraines/rtm-api": "^1.13.1",
     "chalk": "^4.0.0",
     "cli-table3": "^0.6.3",
     "commander": "^2.11.0",
