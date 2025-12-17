@@ -384,7 +384,8 @@ function parseAliases() {
           }
 
           // Parse the command
-          global._program.parse(args);
+          const parsed = global._program.parse(args);
+          const opts = parsed.opts();
 
         });
 
@@ -416,7 +417,8 @@ function start() {
 
   // Parse the process arguments
   else {
-    program.parse(process.argv);
+    const parsed = program.parse(process.argv);
+    const opts = parsed.opts();
   }
 
 
