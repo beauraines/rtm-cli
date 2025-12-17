@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/beauraines/rtm-cli/compare/v1.12.0...v1.13.0) (2025-12-17)
+
+
+### Features
+
+* **task:** human readeable recurrence and estimates ([#163](https://github.com/beauraines/rtm-cli/issues/163)) ([d78dd0a](https://github.com/beauraines/rtm-cli/commit/d78dd0a1204584a30df2f8a568c25142d93b36cc))
+
 ## [1.12.0](https://github.com/beauraines/rtm-cli/compare/v1.11.0...v1.12.0) (2025-12-17)
 
 
