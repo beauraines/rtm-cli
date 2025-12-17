@@ -216,7 +216,7 @@ function formatRecurrence(raw) {
 function exportDetails(idx, url, notes) {
   const fileName = `${idx}.md`;
   const exportDir = (process.env.NODE_ENV === 'test' ? os.tmpdir() : (config.config.obsidianTaskDir || os.tmpdir()));
-  const filePath = path.join(exportDir, fileName);
+  const filePath = path.join(exportDir, 'rtm', fileName);
   let content = '';
   if (url) {
     content += `🔗 [${url}](${url})\n\n---\n\n`;
