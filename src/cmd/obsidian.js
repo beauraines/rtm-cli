@@ -124,9 +124,9 @@ function displayObsidianTask(idx, task) {
     line += ` ${priorityMap[priority]}`;
   }
 
+  // TODO add location as tags https://github.com/beauraines/rtm-cli/issues/159
   // Add list tag first, then other tags
   const allTags = [`#${listTag}`, ...tags.map(t => `#${sanitizeTag(t)}`)];
-  // ! There is a problem with tags that include `@` maybe look at location:tag or context:tag or list:tag
   const tagStr = allTags.map(t => ` ${t}`).join('');
   line += `${tagStr}`;
 
