@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/beauraines/rtm-cli/compare/v1.11.0...v1.12.0) (2025-12-17)
+
+
+### Features
+
+* **task:** adds tasks as alias for task command ([#162](https://github.com/beauraines/rtm-cli/issues/162)) ([b9196ee](https://github.com/beauraines/rtm-cli/commit/b9196ee2d73680cce9ab01e39cd73e27b426fb7e)), closes [#152](https://github.com/beauraines/rtm-cli/issues/152)
+
 ## [1.11.0](https://github.com/beauraines/rtm-cli/compare/v1.10.0...v1.11.0) (2025-12-17)
 
 
