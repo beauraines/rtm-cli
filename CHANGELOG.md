@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.13.2](https://github.com/beauraines/rtm-cli/compare/v1.13.1...v1.13.2) (2025-12-18)
+
+
+### Bug Fixes
+
+* moves to latest, non ESM open package ([#164](https://github.com/beauraines/rtm-cli/issues/164)) ([f1dcb52](https://github.com/beauraines/rtm-cli/commit/f1dcb52c18f7c78e629123b1842481805009f8b9))
+
 ### [1.13.1](https://github.com/beauraines/rtm-cli/compare/v1.13.0...v1.13.1) (2025-12-18)
 
 
