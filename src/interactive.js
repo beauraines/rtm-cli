@@ -41,7 +41,8 @@ function prompt() {
 
     // Parse the line command with commander
     else if ( commands.indexOf(cmd) > -1 || aliases.indexOf(cmd) > -1 ) {
-      global._program.parse(params);
+      const parsed = global._program.parse(params);
+      const opts = parsed.opts();
     }
 
     // Nothing entered
