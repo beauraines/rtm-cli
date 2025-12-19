@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/beauraines/rtm-cli/compare/v1.13.2...v1.14.0) (2025-12-19)
+
+
+### Features
+
+* **obsidian:** includes location tag in export ([1a19ff7](https://github.com/beauraines/rtm-cli/commit/1a19ff7b9c6763917bb310a578ade2bb2a2babec))
+* **obsidian:** includes task object in file export ([023a784](https://github.com/beauraines/rtm-cli/commit/023a784d49881dbc4631fb5f5f2ec448f5fca6f9))
+* **tasks:** includes location in the output ([4c0b3da](https://github.com/beauraines/rtm-cli/commit/4c0b3daa2731a563de15ed70d6423d27a01e31a4))
+
 ### [1.13.2](https://github.com/beauraines/rtm-cli/compare/v1.13.1...v1.13.2) (2025-12-18)
 
 
