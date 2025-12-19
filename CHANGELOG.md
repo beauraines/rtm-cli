@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.1](https://github.com/beauraines/rtm-cli/compare/v1.14.0...v1.14.1) (2025-12-19)
+
+
+### Bug Fixes
+
+* properly handles empty location tag, file name written to std err ([#166](https://github.com/beauraines/rtm-cli/issues/166)) ([7834ab0](https://github.com/beauraines/rtm-cli/commit/7834ab00d8105f67c35a07f396fbe3cb5de61eb5))
+
 ## [1.14.0](https://github.com/beauraines/rtm-cli/compare/v1.13.2...v1.14.0) (2025-12-19)
 
 
