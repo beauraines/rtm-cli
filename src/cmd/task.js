@@ -11,6 +11,7 @@ const { humanizeDuration, humanizeRecurrence } = require('../utils/format');
 
 let TASKS = [];
 let LIST_MAP = new Map();
+let LOCATION_MAP = new Map();
 
 // Get Display Styles
 let styles = config.get().styles;
@@ -43,6 +44,17 @@ async function action(args, env) {
     LIST_MAP = new Map(lists.map(l => [l.id, l.name]));
   } catch (e) {
     log.spinner.warn(`Could not fetch lists: ${e.message || e}`);
+  } finally {
+    log.spinner.stop();
+  }
+  
+  // Fetch all RTM Locations to map IDs to names
+  try {
+    log.spinner.start('Fetching Locations');
+    const locations = await new Promise((res, rej) => user.locations.get((err, locations) => err ? rej(err) : res(locations)));
+    LOCATION_MAP = new Map(locations.map(l => [l.id, l.name]));
+  } catch (e) {
+    log.spinner.warn(`Could not fetch locations: ${e.message || e}`);
   } finally {
     log.spinner.stop();
   }
@@ -94,9 +106,10 @@ function displayTask(taskDetails) {
   debug(taskDetails)
   let index = taskDetails.index;
   // eslint-disable-next-line no-unused-vars
-  const { _list, list_id, taskseries_id, task_id, _index, name, priority, start, due, completed, isRecurring, recurrenceRuleRaw, isSubtask, estimate, url, tags, notes, ...otherAttributes } = taskDetails.task;
+  const { _list, list_id, location_id, taskseries_id, task_id, _index, name, priority, start, due, completed, isRecurring, recurrenceRuleRaw, isSubtask, estimate, url, tags, notes, ...otherAttributes } = taskDetails.task;
   
   const listName = LIST_MAP.get(list_id) || "Not found";
+  const locationName = LOCATION_MAP.get(location_id) || "Not found";
   
   log.style(index + " " + name,styles.list,true);
   log.style(`List Name: `,styles.index)
@@ -122,6 +135,8 @@ function displayTask(taskDetails) {
   log(`${isSubtask}`)
   log.style(`Estimate: `,styles.index)
   log(humanizeDuration(estimate))
+  log.style(`Location: `,styles.index)
+  log(locationName)
   log.style(`Url: `,styles.index)
   log(`${url}`)
   log.style(`Tags: `,styles.index)
