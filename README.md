@@ -176,5 +176,5 @@ and `rtm obsidian 4330` would output
 which could be written to a file in your Obsidian Vault.
 
 ```shell
-rtm ls due:today | cut -wf1 | sort | xargs ./src/cli.js obsidian >> ~/LocalDocs/Test/Tasks/rtm.md
+rtm ls due:today | cut -wf1 | sort | xargs rtm obsidian >> ~/LocalDocs/Test/Tasks/rtm.md
 ```

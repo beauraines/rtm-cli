@@ -90,8 +90,9 @@ function displayObsidianTask(idx, task) {
   task.list_name = listName;
 
   const location = LOCATION_MAP.get(location_id)
-  const locationName = location?.name || "Not found";
-  const locationTag = 'location/'+locationName.replace(/\s+/g, '-');
+  const locationName = location?.name;
+  let locationTag ='';
+  locationName ? locationTag = '#location/'+locationName.replace(/\s+/g, '-') : null ;
   task.location = location;
 
 
@@ -147,7 +148,7 @@ function displayObsidianTask(idx, task) {
   }
 
   // Add list tag first, then other tags
-  const allTags = [`#${listTag}`, `#${locationTag}`, ...tags.map(t => `#${sanitizeTag(t)}`)];
+  const allTags = [`#${listTag}`, `${locationTag}`, ...tags.map(t => `#${sanitizeTag(t)}`)];
   const tagStr = allTags.map(t => ` ${t}`).join('');
   line += `${tagStr}`;
 
@@ -265,6 +266,8 @@ function exportDetails(idx, task) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   try {
     fs.writeFileSync(filePath, content);
+    console.error(`Task detail files written to ${filePath}`)
+
   } catch (e) {
     console.error(`Failed to write details file for task ${idx}: ${e}`);
   }
