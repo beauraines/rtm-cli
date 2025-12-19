@@ -50,7 +50,7 @@ async function action(args, env) {
     try {
       log.spinner.start('Fetching Locations');
       const locations = await new Promise((res, rej) => user.locations.get((err, locations) => err ? rej(err) : res(locations)));
-      LOCATION_MAP = new Map(locations.map(l => [l.id, l.name]));
+      LOCATION_MAP = new Map(locations.map(l => [l.id, l]));
     } catch (e) {
       log.spinner.warn(`Could not fetch locations: ${e.message || e}`);
     } finally {
@@ -87,9 +87,12 @@ function displayObsidianTask(idx, task) {
   const listName = LIST_MAP.get(list_id) || list_id;
   // Slugify list name for Obsidian tag
   const listTag = listName.replace(/\s+/g, '-');
+  task.list_name = listName;
 
-  const locationName = LOCATION_MAP.get(location_id) || "Not found";
+  const location = LOCATION_MAP.get(location_id)
+  const locationName = location?.name || "Not found";
   const locationTag = 'location/'+locationName.replace(/\s+/g, '-');
+  task.location = location;
 
 
   const checkbox = completed ? 'x' : ' ';
@@ -151,7 +154,7 @@ function displayObsidianTask(idx, task) {
   line += ` 🆔 ${idx}`;
 
   if (url || notes.length) {
-    exportDetails(idx, url, notes);
+    exportDetails(idx, task);
   }
 
   log(line);
@@ -232,11 +235,12 @@ function formatRecurrence(raw) {
 }
 
 // Helper: export URL and notes to a file in /tmp
-function exportDetails(idx, url, notes) {
+function exportDetails(idx, task) {
   const fileName = `${idx}.md`;
   const exportDir = (process.env.NODE_ENV === 'test' ? os.tmpdir() : (config.config.obsidianTaskDir || os.tmpdir()));
   const filePath = path.join(exportDir, 'rtm', fileName);
   let content = '';
+  const {url,notes} = task;
   if (url) {
     content += `🔗 [${url}](${url})\n\n---\n\n`;
   }
@@ -249,6 +253,10 @@ function exportDetails(idx, url, notes) {
       content += `\n---\n\n`;
     });
   }
+  content += '```json\n';
+  content += JSON.stringify(task,2,4);
+  content += '\n```\n';
+
   // Trim trailing newline for combined URL and notes case
   if (url && notes && notes.length) {
     content = content.replace(/\n$/, '');
