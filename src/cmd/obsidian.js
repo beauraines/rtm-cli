@@ -15,6 +15,8 @@ const os = require('os');
 let TASKS = [];
 // Map of RTM list IDs to names
 let LIST_MAP = new Map();
+let LOCATION_MAP = new Map();
+
 
 /**
  * This command outputs tasks in Obsidian Tasks markdown syntax
@@ -44,6 +46,18 @@ async function action(args, env) {
     log.spinner.stop();
   }
 
+    // Fetch all RTM Locations to map IDs to names
+    try {
+      log.spinner.start('Fetching Locations');
+      const locations = await new Promise((res, rej) => user.locations.get((err, locations) => err ? rej(err) : res(locations)));
+      LOCATION_MAP = new Map(locations.map(l => [l.id, l.name]));
+    } catch (e) {
+      log.spinner.warn(`Could not fetch locations: ${e.message || e}`);
+    } finally {
+      log.spinner.stop();
+    }
+  
+
   log.spinner.start('Getting Task(s)');
   for (const idx of indices) {
     const filterString = filter();
@@ -68,11 +82,16 @@ async function action(args, env) {
  */
 function displayObsidianTask(idx, task) {
   debug(task);
-  const { name, priority, start, due, completed, tags = [], added, url, list_id, notes = [], estimate, isRecurring, recurrenceRuleRaw } = task;
+  const { name, priority, start, due, completed, tags = [], added, url, list_id, notes = [], estimate, isRecurring, recurrenceRuleRaw, location_id } = task;
 
   const listName = LIST_MAP.get(list_id) || list_id;
   // Slugify list name for Obsidian tag
   const listTag = listName.replace(/\s+/g, '-');
+
+  const locationName = LOCATION_MAP.get(location_id) || "Not found";
+  const locationTag = 'location/'+locationName.replace(/\s+/g, '-');
+
+
   const checkbox = completed ? 'x' : ' ';
   let line = `- [${checkbox}] ${name}`;
 
@@ -124,9 +143,8 @@ function displayObsidianTask(idx, task) {
     line += ` ${priorityMap[priority]}`;
   }
 
-  // TODO add location as tags https://github.com/beauraines/rtm-cli/issues/159
   // Add list tag first, then other tags
-  const allTags = [`#${listTag}`, ...tags.map(t => `#${sanitizeTag(t)}`)];
+  const allTags = [`#${listTag}`, `#${locationTag}`, ...tags.map(t => `#${sanitizeTag(t)}`)];
   const tagStr = allTags.map(t => ` ${t}`).join('');
   line += `${tagStr}`;
 
