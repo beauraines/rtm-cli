@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.2](https://github.com/beauraines/rtm-cli/compare/v1.14.1...v1.14.2) (2026-01-25)
+
+
+### Bug Fixes
+
+* **deps:** bump lodash from 4.17.21 to 4.17.23 ([#169](https://github.com/beauraines/rtm-cli/issues/169)) ([13da603](https://github.com/beauraines/rtm-cli/commit/13da603351410625cc7bf686f81e0fb2ae7f2c31)), closes [#6088](https://github.com/beauraines/rtm-cli/issues/6088) [#6071](https://github.com/beauraines/rtm-cli/issues/6071) [#6062](https://github.com/beauraines/rtm-cli/issues/6062) [#6056](https://github.com/beauraines/rtm-cli/issues/6056) [#6053](https://github.com/beauraines/rtm-cli/issues/6053) [#6052](https://github.com/beauraines/rtm-cli/issues/6052) [#6039](https://github.com/beauraines/rtm-cli/issues/6039) [#6023](https://github.com/beauraines/rtm-cli/issues/6023) [#5968](https://github.com/beauraines/rtm-cli/issues/5968)
+
 ### [1.14.1](https://github.com/beauraines/rtm-cli/compare/v1.14.0...v1.14.1) (2025-12-19)
 
 
