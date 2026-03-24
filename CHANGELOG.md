@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.4](https://github.com/beauraines/rtm-cli/compare/v1.14.3...v1.14.4) (2026-03-24)
+
+
+### Bug Fixes
+
+* **deps:** bump @beauraines/rtm-api from 1.14.1 to 1.14.3 ([#180](https://github.com/beauraines/rtm-cli/issues/180)) ([3d1e6ec](https://github.com/beauraines/rtm-cli/commit/3d1e6ec8f7f03b0331e235b78dbc43258877feda)), closes [#76](https://github.com/beauraines/rtm-cli/issues/76) [debug-js/debug#1005](https://github.com/debug-js/debug/issues/1005) [debug-js/debug#997](https://github.com/debug-js/debug/issues/997) [#987](https://github.com/beauraines/rtm-cli/issues/987) [debug-js/debug#988](https://github.com/debug-js/debug/issues/988) [debug-js/debug#997](https://github.com/debug-js/debug/issues/997) [debug-js/debug#988](https://github.com/debug-js/debug/issues/988) [#987](https://github.com/beauraines/rtm-cli/issues/987) [#988](https://github.com/beauraines/rtm-cli/issues/988) [#77](https://github.com/beauraines/rtm-cli/issues/77) [#6088](https://github.com/beauraines/rtm-cli/issues/6088) [#6071](https://github.com/beauraines/rtm-cli/issues/6071) [#6062](https://github.com/beauraines/rtm-cli/issues/6062) [#6056](https://github.com/beauraines/rtm-cli/issues/6056) [#6053](https://github.com/beauraines/rtm-cli/issues/6053) [#6052](https://github.com/beauraines/rtm-cli/issues/6052) [#6039](https://github.com/beauraines/rtm-cli/issues/6039) [#6023](https://github.com/beauraines/rtm-cli/issues/6023) [#5968](https://github.com/beauraines/rtm-cli/issues/5968) [#86](https://github.com/beauraines/rtm-cli/issues/86) [#76](https://github.com/beauraines/rtm-cli/issues/76) [#77](https://github.com/beauraines/rtm-cli/issues/77) [#81](https://github.com/beauraines/rtm-cli/issues/81) [#75](https://github.com/beauraines/rtm-cli/issues/75) [#84](https://github.com/beauraines/rtm-cli/issues/84)
+
 ### [1.14.3](https://github.com/beauraines/rtm-cli/compare/v1.14.2...v1.14.3) (2026-02-25)
 
 
