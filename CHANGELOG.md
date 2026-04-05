@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.7](https://github.com/beauraines/rtm-cli/compare/v1.14.6...v1.14.7) (2026-04-05)
+
+
+### Bug Fixes
+
+* **deps:** bump lodash from 4.17.23 to 4.18.1 ([#185](https://github.com/beauraines/rtm-cli/issues/185)) ([5f6112c](https://github.com/beauraines/rtm-cli/commit/5f6112cdeb55225d20b58c2c44b268cc84a363ed)), closes [/redirect.github.com/lodash/lodash/issues/6167#issuecomment-4165269769](https://github.com/beauraines//redirect.github.com/lodash/lodash/issues/6167/issues/issuecomment-4165269769) [lodash/lodash#6167](https://github.com/lodash/lodash/issues/6167) [#6099](https://github.com/beauraines/rtm-cli/issues/6099) [#6115](https://github.com/beauraines/rtm-cli/issues/6115) [#6090](https://github.com/beauraines/rtm-cli/issues/6090) [#6177](https://github.com/beauraines/rtm-cli/issues/6177) [#6170](https://github.com/beauraines/rtm-cli/issues/6170) [#6165](https://github.com/beauraines/rtm-cli/issues/6165) [#6161](https://github.com/beauraines/rtm-cli/issues/6161) [#6153](https://github.com/beauraines/rtm-cli/issues/6153) [#6137](https://github.com/beauraines/rtm-cli/issues/6137)
+
 ### [1.14.6](https://github.com/beauraines/rtm-cli/compare/v1.14.5...v1.14.6) (2026-03-30)
 
 
