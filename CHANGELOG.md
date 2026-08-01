@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.9](https://github.com/beauraines/rtm-cli/compare/v1.14.8...v1.14.9) (2026-08-01)
+
+
+### Bug Fixes
+
+* **deps:** bump iso8601-duration from 2.1.3 to 2.1.4 ([#192](https://github.com/beauraines/rtm-cli/issues/192)) ([64f4183](https://github.com/beauraines/rtm-cli/commit/64f41832e58b471c433ca00702e803d5e580ac4f)), closes [#40](https://github.com/beauraines/rtm-cli/issues/40) [#40](https://github.com/beauraines/rtm-cli/issues/40)
+
 ### [1.14.8](https://github.com/beauraines/rtm-cli/compare/v1.14.7...v1.14.8) (2026-06-03)
 
 
