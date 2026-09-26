@@ -113,6 +113,12 @@ function action(args, env) {
           printIndicator('subtask',task);
         }
 
+        // Display parent task indicator
+        if (task.hasSubtasks) {
+          log.style(' ');
+          printIndicator('parentTask',task);
+        }
+
         // Print the Task Name
         log.style(' ');
         log.style(task.name + ' ', priStyle);

@@ -14,7 +14,7 @@ function printIndicator(type,task) {
     let iconType = config.get().iconType;
 
     let indicatorStyle = task.isCompleted ? styles.completed : styles[type];
-    let notesIndicator,urlIndicator,recurringIndicator,subTaskIndicator;
+    let notesIndicator,urlIndicator,recurringIndicator,subTaskIndicator,parentTaskIndicator;
     iconType = iconType || 'text'; // defaults to text if nothing included
     switch (iconType) {
         case 'emoji':
@@ -22,6 +22,7 @@ function printIndicator(type,task) {
             urlIndicator = '🔗';
             recurringIndicator = '🔁';
             subTaskIndicator = '⤴️ '
+            parentTaskIndicator = '📋 '
         break;
         case 'text':  
         default:
@@ -29,13 +30,15 @@ function printIndicator(type,task) {
             urlIndicator = '+';
             recurringIndicator = 'r';
             subTaskIndicator = '(s) '
+            parentTaskIndicator = '(p) '
         break;
     }
     let indicators = {
         notes: notesIndicator,
         url: urlIndicator,
         recurring: recurringIndicator,
-        subtask: subTaskIndicator
+        subtask: subTaskIndicator,
+        parentTask: parentTaskIndicator
     }
     log.style(indicators[type], indicatorStyle);
 }
