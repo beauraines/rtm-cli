@@ -106,7 +106,7 @@ function displayTask(taskDetails) {
   debug(taskDetails)
   let index = taskDetails.index;
   // eslint-disable-next-line no-unused-vars
-  const { _list, list_id, location_id, taskseries_id, task_id, _index, name, priority, start, due, completed, isRecurring, recurrenceRuleRaw, isSubtask, estimate, url, tags, notes, ...otherAttributes } = taskDetails.task;
+  const { _list, list_id, location_id, taskseries_id, task_id, _index, name, priority, start, due, completed, isRecurring, recurrenceRuleRaw, isSubtask, hasSubtasks, estimate, url, tags, notes, ...otherAttributes } = taskDetails.task;
   
   const listName = LIST_MAP.get(list_id) || "Not found";
   const locationName = LOCATION_MAP.get(location_id) || "Not found";
@@ -133,6 +133,8 @@ function displayTask(taskDetails) {
 
   log.style(`Is Subtask: `,styles.index)
   log(`${isSubtask}`)
+  log.style(`Has Subtasks: `,styles.index)
+  log(`${hasSubtasks}`)
   log.style(`Estimate: `,styles.index)
   log(humanizeDuration(estimate))
   log.style(`Location: `,styles.index)
