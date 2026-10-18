@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.11](https://github.com/beauraines/rtm-cli/compare/v1.14.9...v1.14.11) (2026-10-18)
+
+
+### Bug Fixes
+
+* **deps:** bump brace-expansion ([#204](https://github.com/beauraines/rtm-cli/issues/204)) ([09d144f](https://github.com/beauraines/rtm-cli/commit/09d144fd139d8b16afc3149b0cc119a1559698ba))
+* **deps:** bump handlebars from 4.7.9 to 4.7.10 ([#203](https://github.com/beauraines/rtm-cli/issues/203)) ([32fec8a](https://github.com/beauraines/rtm-cli/commit/32fec8af0a594bc1be3e17ad2aad5abd8f795773))
+
 ### [1.14.9](https://github.com/beauraines/rtm-cli/compare/v1.14.8...v1.14.9) (2026-08-01)
 
 
