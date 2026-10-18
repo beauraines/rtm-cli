@@ -1,6 +1,6 @@
 {
   "name": "@beauraines/rtm-cli",
-  "version": "1.14.9",
+  "version": "1.14.10",
   "description": "RTM CLI",
   "keywords": [
     "rtm",
@@ -43,7 +43,7 @@
     "copy-paste": "^2.1.1",
     "dateformat": "^4.0.0",
     "debug": "^4.3.4",
-    "deepmerge": "^4.0.0",
+    "deepmerge": "^0.0.0",
     "iso8601-duration": "^2.1.3",
     "open": "^8.4.2",
     "ora": "^5.0.0",
