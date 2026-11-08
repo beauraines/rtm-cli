@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.14.12](https://github.com/beauraines/rtm-cli/compare/v1.14.11...v1.14.12) (2026-11-08)
+
+
+### Bug Fixes
+
+* **deps:** bump @beauraines/rtm-api from 1.15.5 to 1.15.6 ([#206](https://github.com/beauraines/rtm-cli/issues/206)) ([83112e0](https://github.com/beauraines/rtm-cli/commit/83112e004e060d6702c59c8e8abb64890ae9cb43)), closes [#111](https://github.com/beauraines/rtm-cli/issues/111) [#111](https://github.com/beauraines/rtm-cli/issues/111) [#105](https://github.com/beauraines/rtm-cli/issues/105) [#107](https://github.com/beauraines/rtm-cli/issues/107) [#106](https://github.com/beauraines/rtm-cli/issues/106) [#99](https://github.com/beauraines/rtm-cli/issues/99)
+* **deps:** bump iso8601-duration from 2.1.4 to 2.2.0 ([#207](https://github.com/beauraines/rtm-cli/issues/207)) ([91aac27](https://github.com/beauraines/rtm-cli/commit/91aac273b3a61cf6dc55562bf80fb9562678617a)), closes [#41](https://github.com/beauraines/rtm-cli/issues/41) [#41](https://github.com/beauraines/rtm-cli/issues/41)
+
 ### [1.14.11](https://github.com/beauraines/rtm-cli/compare/v1.14.9...v1.14.11) (2026-10-18)
 
 
